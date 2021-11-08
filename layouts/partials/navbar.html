@@ -1,0 +1,34 @@
+{{ $home  := site.BaseURL }}
+{{ $title := site.Title }}
+{{ $logo  := printf "img/logos/%s" site.Params.logos.navbar | relURL }}
+{{ $color := cond .IsHome "dark" "white" }}
+{{ $menu  := site.Menus.navbar }}
+<nav class="navbar is-{{ $color }} is-fixed-top">
+  <div class="container">
+    <div class="navbar-brand">
+      {{ if not .IsHome }}
+      <a class="navbar-item has-text-weight-bold" href="{{ $home }}">
+        <img src="{{ $logo }}" alt="GitBOM navbar logo">
+      </a>
+      {{ end }}
+
+      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div class="navbar-menu" id="navbar-menu">
+      <div class="navbar-end">
+        {{ range $menu }}
+        <a class="navbar-item has-text-weight-bold" href="{{ .URL }}">
+          {{ .Name }}
+        </a>
+        {{ end }}
+
+        {{ partial "social-buttons.html" . }}
+      </div>
+    </div>
+  </div>
+</nav>

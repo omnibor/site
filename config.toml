@@ -1,0 +1,71 @@
+baseURL = 'http://gitbom.dev/'
+languageCode = 'en-us'
+title = 'GitBOM'
+
+[module]
+  [[module.imports]]
+    path="github.com/refactoringui/heroicons"
+  [[module.imports.mounts]]
+    source = "src"
+    target = "assets/svg/heroicons"
+
+  [[module.imports]]
+    path = "github.com/FortAwesome/Font-Awesome"
+  [[module.imports.mounts]]
+    source = "scss"
+    target = "assets/sass/fontawesome"
+  [[module.imports.mounts]]
+    source = "webfonts"
+    target = "static/webfonts"
+
+  [[module.imports]]
+    path="github.com/jgthms/bulma"
+  [[module.imports.mounts]]
+    source = "."
+    target = "assets/sass/bulma"
+
+# Syntax highlighting settings
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        block = true
+        title = true
+  [markup.highlight]
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = true
+    style = 'monokailight'
+
+[params]
+subtitle = 'Automatic and Verifiable Artifact Resolution'
+fontawesomeversion = "5.8.1"
+[[params.fonts]]
+name = "Nunito Sans"
+sizes = [300, 400, 600, 700]
+type = "sans_serif"
+
+[[params.fonts]]
+name = "Roboto Mono"
+sizes = [300, 400, 600, 700]
+type = "monospace"
+
+[params.social]
+    github = "https://github.com/gitbom/"
+    twitter = "https://twitter.com/gitbom"
+
+[params.logos]
+navbar = "git_icon.svg"
+hero = "git_icon.svg"
+
+[menu]
+[[menu.navbar]]
+name = "Docs"
+url = "/docs/"
+weight = 1
+[[menu.navbar]]
+name = "Community"
+url = "/community/"
+weight = 2

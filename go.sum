@@ -1,0 +1,14 @@
+github.com/FortAwesome/Font-Awesome v0.0.0-20190321215043-299abb1fb101 h1:zKbnPD7tfPEalDDaKuy1tiv6O0mWA7TliwHj0yBJWQM=
+github.com/FortAwesome/Font-Awesome v0.0.0-20190321215043-299abb1fb101/go.mod h1:IUgezN/MFpCDIlFezw3L8j83oeiIuYoj28Miwr/KUYo=
+github.com/FortAwesome/Font-Awesome v4.7.0+incompatible h1:3trjm7NtX5NXlju1AxSWSzedDMq2hsfH78Qtqrc8EgY=
+github.com/FortAwesome/Font-Awesome v4.7.0+incompatible/go.mod h1:IUgezN/MFpCDIlFezw3L8j83oeiIuYoj28Miwr/KUYo=
+github.com/jgthms/bulma v0.0.0-20190208113811-7cf10a786a18 h1:lQPxqfR+3dd4SqdLF09Pg6jPl+pxJeQ07DP/HjSOcyI=
+github.com/jgthms/bulma v0.0.0-20190208113811-7cf10a786a18/go.mod h1:89FLBKXYFKfOKAoDeUT26V0pHGwzr205cMXAEqtAVOI=
+github.com/jgthms/bulma v0.0.0-20211026211244-a6cd4f302edc h1:k+x0cW5a6umoOY/HM8D2RJfThzbDT8VxzvDm40+0lrk=
+github.com/jgthms/bulma v0.0.0-20211026211244-a6cd4f302edc/go.mod h1:89FLBKXYFKfOKAoDeUT26V0pHGwzr205cMXAEqtAVOI=
+github.com/orf/bare-hugo-theme v0.0.0-20210429204408-c7790f7f0890 h1:ZZBwkh9Bol8joUnigCWJE5BlijWYb+z83g6BjeFSqqc=
+github.com/orf/bare-hugo-theme v0.0.0-20210429204408-c7790f7f0890/go.mod h1:aZ/HHOCsSM0xPSY5Wd6Yh360C6Axu6rHECcPikVzkU4=
+github.com/refactoringui/heroicons v1.0.3 h1:m4zXOj8Z9fN6mED6+1HMPh5V7z3YcBu/QCa+B6pH/WU=
+github.com/refactoringui/heroicons v1.0.3/go.mod h1:82HsLWQga7MkEl5aK8TctxPPIBlXrsyWcVTB57uipuk=
+github.com/yihui/hugo-xmin v0.0.0-20201016020520-4100270f6fe5 h1:Lfn6z15yfxX1bvD6gNtPFXa8rkkOXmw3S05Ed7NJ6cw=
+github.com/yihui/hugo-xmin v0.0.0-20201016020520-4100270f6fe5/go.mod h1:RiCR4psTF4iydlh4bR9BijKIHmivp7IeBaokx0CvzRA=

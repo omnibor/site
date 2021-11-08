@@ -1,0 +1,27 @@
+{{ $title    := site.Title }}
+{{ $subtitle := site.Params.subtitle }}
+{{ $logo     := printf "img/logos/%s" site.Params.logos.hero | relURL }}
+<section class="hero">
+  <div class="container">
+    <div class="hero-body">
+      <div class="columns is-vcentered is-variable">
+        <div class="column is-two-thirds">
+          <p class="title is-size-1 is-size-2-mobile has-text-weight-light is-spaced">
+            {{ $title }}
+          </p>
+
+          <hr class="thick light-orange" />
+    
+          <p class="subtitle is-size-4 is-size-6-mobile has-text-weight-medium">
+            {{ $subtitle }}
+          </p>
+        </div>
+
+        <div class="column has-text-centered">
+          <img class="is-hero-logo" src="{{ $logo }}" alt="Network Service Mesh main hero logo">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  
