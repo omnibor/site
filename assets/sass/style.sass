@@ -1,0 +1,31 @@
+{{- $fonts    := site.Params.fonts }}
+{{- $fontSlice := (slice) }}
+{{- range $fonts }}
+{{- $fontSlice = $fontSlice | append (printf "%s:%s" (replace .name " " "+") (delimit .sizes ",")) }}
+{{- end }}
+{{- $fontsUrl := printf "https://fonts.googleapis.com/css?family=%s" (delimit $fontSlice "|") }}
+{{- $sansSerifFont := (index (where site.Params.fonts ".type" "sans_serif") 0).name }}
+{{- $monospaceFont := (index (where site.Params.fonts ".type" "monospace") 0).name }}
+{{- $fontAwesomeVersion := site.Params.fontawesomeversion }}
+{{- $fontAwesomeUrl     := printf "https://use.fontawesome.com/releases/v%s/css/all.css" $fontAwesomeVersion }}
+
+@charset "utf-8"
+@import url("{{ $fontsUrl }}")
+@import "fontawesome/fontawesome"
+@import "fontawesome/brands"
+@import "fontawesome/solid"
+
+$site-sans-serif-font: "{{ $sansSerifFont }}"
+$site-monospace-font: "{{ $monospaceFont }}"
+
+@import "bulma"
+
+@import "bullets"
+@import "hover-link"
+@import "hero"
+@import "gdoc"
+@import "youtube"
+@import "logo"
+@import "toc"
+@import "navbar"
+@import "highlight"

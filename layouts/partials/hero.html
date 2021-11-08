@@ -1,0 +1,20 @@
+{{ $title := .Title }}
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="container">
+        <p class="title has-text-weight-light">
+        {{ $title | markdownify }}
+        </p>
+        <p class="subtitle has-text-weight-light">
+            {{ range .Params.Subtitle }}
+                {{ . | markdownify}}<br />
+            {{ end }}
+        </p>
+        <p>
+            {{ range .Params.Buttons }}
+            <a class="button" href="{{.href}}">{{.name | markdownify}}</a>
+            {{ end }}
+        </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,5 @@
+{{ $type := .Get "type" }}
+
+<div class="notification is-{{$type}} is-light">
+    {{ .Inner }}
+</div>
