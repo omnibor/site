@@ -1,23 +1,28 @@
 +++
 title = "Whitepaper"
+toc = "true"
 +++
 
 
 Towards a GitBOM Specification
 ===
 
-{{% info %}}
+{{% notification type="info" %}}
 Author: Aeva Black 
 Contact: aeva dot online at gmail / @aeva on OFTC IRC / @aeva.online:matrix.org
 
 Updated: 2021-08-26
 
 Status: WORK-IN-PROGRESS / Seeking Collaborators
-{{% /info %}}
+{{% /notification %}}
 
 ## Summary
 
-GitBOM is a novel and minimalistic approach to generating artifact trees at build time, thereby enabling launch-time comparison of vulnerability data against a complete artifact tree for open source projects.
+GitBOM is neither `git` nor an SBOM.
+
+It is an application of the git DAG, a widely used merkle tree with a flat-file storage format, to the challenge of creating build artifact trees in today's language-heterogeneous open source environments.
+
+By generating artifact trees at build time, embedding the hash of the tree in produced artifacts, and referencing that hash in the next build step, GitBOM will enable the zero-end-user-effort creation of verifiable artifact trees. Furthermore, it will enable launch-time comparison of vulnerability data against a complete artifact tree for both open source and proprietary projects (if vuln data is traceable back to source file).
 
 ### Objective
 
@@ -42,7 +47,7 @@ Following from (2), this on-disk format provides an efficient and already well-u
 
 
 ### ASCII-Art Flow Chart
-``` 
+```
  ┌─────────────────────────────┐
  │ Build-time Tree Generation  │
  │                             │
@@ -138,9 +143,9 @@ This implies that we must not include build tooling in the artifact tree, as doi
 
 For further exploration of this topic, see Wheeler's work on reproducibility as a means to verify trustability: [Countering Trusting Trust through Diverse Double-Compiling](https://dwheeler.com/trusting-trust/)
 
-{{% info %}}
+{{% notification type="info" %}}
 **Note the implication** that for any artifact, there can only be one artifact identity graph, but the reverse is not true. Each artifact identity graph may generate multiple artifacts (e.g., if different build parameters are used, or it is compiled on a different architecture, or different metadata, such as compile time, were embedded in the built artifact).
-{{% /info %}}
+{{% /notification %}}
 
 #### 5. Transparently Opaque
 
@@ -182,17 +187,17 @@ Undoubtably, more will arise.  Independence of metadata independent permissionle
 
 ### Comparison to Software Bill Of Materials and our Objective
 
-{{% info %}}
+{{% notification type="info" %}}
 GitBOM is **not** an SBOM standard.
-{{% /info %}}
+{{% /notification%}}
 
 From the GitBOM perspective, any SBOM document is a type of artifact which could be referenced in an artifact tree.
 
 From an SBOM perspective, GitBOM is a common precise way to identify artifacts and their artifact trees, and nothing more. This makes GitBOM incapable of fulfilling many of the objectives of SBOMs, such as recording provenance, origination, build environment information, licensure, and other qualities.
 
-{{% info %}}
+{{% notification type="info" %}}
 Speaking strictly from an **SPDX 3.0-draft** perspective, GitBOM is a lossy serialization format that only includes the minimum metadata field of "Identifier".
-{{% /info %}}
+{{% /notification %}}
 
 Current metadata formats, such as SPDX 2.x, as well as current systems to sign and transport metadata documents, do not *efficiently* support [our use case](#Objective) in the general case. They may well, however, support this use case in a specialized case, which we will discuss.
 
@@ -247,9 +252,8 @@ The compiler would also embed this gitref in a new elf section of the resulting 
 ### Example: OCI v2 / ORAS
 
 Imagine we have the following Dockerfile:
-```
+```docker
 FROM <baseimage>:<release>
-
 RUN <command to install package>
 ```
 
@@ -276,9 +280,9 @@ blob_000TODO
   }
 }
 ```
-{{% info %}}
+{{% notification type="info" %}}
 **NOTE**: The annotation type 'gitbom' is not yet standardized or accepted to OCI. In the above snipped, 'gitbom' is merely an example.
-{{% /info %}}
+{{% /notification %}}
 
 ### Example: truncating a tree for non-public subtrees
 

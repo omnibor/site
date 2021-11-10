@@ -6,7 +6,6 @@ GitBOM is...
 
 * Lorem Ipsum1
 * Lorem Ipsum2
-{.bullet-green-check .two-columns}
 {{< /home/section >}}
 
 {{< home/section title="Use Cases" >}}

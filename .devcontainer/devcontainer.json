@@ -26,8 +26,15 @@
 
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
+		"akmittal.hugofy",
+		"rusnasonov.vscode-hugo",
+		"budparr.language-hugo-vscode",
+		"eliostruyf.vscode-hugo-themer",
+		"eliostruyf.vscode-front-matter",
 		"bungcip.better-toml",
-		"davidanson.vscode-markdownlint"
+		"davidanson.vscode-markdownlint",
+		"thekalinga.bootstrap4-vscode",
+		"fivethree.vscode-hugo-snippets",
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.

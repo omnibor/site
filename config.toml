@@ -18,6 +18,27 @@ title = 'GitBOM'
     source = "."
     target = "assets/sass/bulma"
 
+  [[module.imports]]
+    path="github.com/twbs/bootstrap"
+  [[module.imports.mounts]]
+    source = "dist/css"
+    target = "assets/css/bootstrap"
+  [[module.imports.mounts]]
+    source = "dist/js"
+    target = "static/js/bootstrap"
+
+  [[module.imports]]
+    path="github.com/jquery/jquery"
+  [[module.imports.mounts]]
+    source = "dist"
+    target = "static/js/jquery"
+
+  [[module.imports]]
+    path="github.com/mermaid-js/mermaid"
+  [[module.imports.mounts]]
+    source = "dist"
+    target = "static/js/mermaid"
+
 # Syntax highlighting settings
 [markup]
   [markup.goldmark]
@@ -30,8 +51,12 @@ title = 'GitBOM'
   [markup.highlight]
     lineNos = true
     lineNumbersInTable = true
-    noClasses = true
+    noClasses = false
     style = 'monokailight'
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 1
 
 [params]
 subtitle = 'Automatic and Verifiable Artifact Resolution'

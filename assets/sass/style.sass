@@ -15,73 +15,17 @@
 @import "fontawesome/brands"
 @import "fontawesome/solid"
 
+$site-sans-serif-font: "{{ $sansSerifFont }}"
+$site-monospace-font: "{{ $monospaceFont }}"
 
-// Site-specific variables
-
-$gitbom-grey: #f0efe7
-$gitbom-orange: #f14e32
-$gitbom-blue: #0388a6
-$gitbom-light-grey: #eeeeee
-$gitbom-black: #000000
-$twitter-blue: rgb(29, 161, 242)
-
-@import "bulma/sass/utilities/initial-variables"
-@import "bulma/sass/utilities/functions"
-@import "bulma/sass/utilities/mixins"
-
-// Bulma variable overrides
-$primary: $gitbom-blue
-$secondary: $gitbom-orange
-$orange: $gitbom-orange
-$link: $orange
-$link-weight: 700
-$navbar-height: 4rem
-$navbar-item-img-max-height: $navbar-height * 0.8
-$family-sans-serif: "{{ $sansSerifFont }}", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif
-$family-monospace: "{{ $monospaceFont }}", monospace
-$tabs-border-bottom-width: 2px
-$tabs-link-padding: .7rem 1.1rem
-$code: $orange
-$code-background: $white-bis
-
-@import "bulma/sass/utilities/derived-variables"
-
-$colors: mergeColorMaps(("twitter-blue": ($twitter-blue, $white), "orange": ($orange, $white)), $colors)
-$tabs-link-active-color: $dark
-$tabs-link-active-border-bottom-color: $dark
-
-@import "bulma/bulma"
-
-$site-css-prefix: site
+@import "bulma"
 
 @import "bullets"
-@import "columns"
 @import "hover-link"
-
 @import "hero"
-@import "home-header"
 @import "gdoc"
+@import "youtube"
 @import "logo"
-@import "info"
-
-.content li
-    list-style-type: square
-
-.is-navbar-logo span
-    font-size: 2em
-
-.is-navbar-logo i
-    font-size: 3.3em
-
-.is-hero-logo
-  +desktop
-    width: 50%
-
-  +touch
-    width: 50%
-
-.is-logo
-    height: 100%
-
-.hero-body .is-logo
-    height: 3em
+@import "toc"
+@import "navbar"
+@import "highlight"

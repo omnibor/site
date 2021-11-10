@@ -1,6 +1,0 @@
-{{ $section := .Get 0 }}
-{{ $pages := union (where site.RegularPages "Section" $section) (where site.RegularPages ".Parent" $section) }}
-
-{{ range $pages }}
-* [{{.Title}}]({{ .RelPermalink }})
-{{end}}

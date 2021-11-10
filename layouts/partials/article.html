@@ -6,7 +6,7 @@
         {{ if isset .Params "toc"}}
           {{ with $toc }}
           <div class="is-hidden-tablet">
-            {{ partial "docs/toc.html" . }}
+            {{ partial "toc.html" . }}
 
             <hr />
           </div>
@@ -16,10 +16,10 @@
           {{ .Content }}
         </div>
       </div>
-        {{ if isset .Params "toc"}}
+      {{ if isset .Params "toc"}}
         {{ with $toc }}
         <div class="is-hidden-mobile">
-          {{ partial "docs/toc.html" . }}
+          {{ partial "toc.html" . }}
         </div>
         {{ end }}
       {{end}}
