@@ -1,7 +1,7 @@
 {{ $title := .Get "title" }}
 {{ $anchor := lower (replaceRE "[[:space:]]" "-" $title )}}
 {{ $classes := .Get "classes" }}
-{{ $iconclass := default "fas fa-2x fa-project-diagram" (.Get "iconclass") }}
+{{ $iconclass := default "fab fa-git-alt fa-2x" (.Get "iconclass") }}
 <section class="section {{$classes}}">
   <div class="container">
     <div class="columns is-variable is-8">

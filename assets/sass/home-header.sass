@@ -1,0 +1,45 @@
+.home-header
+    float: left
+    overflow: hidden
+    width: 25%
+    padding-top: 12px
+    padding-bottom: 12px
+    padding-left: 32px
+    padding-right: 32px
+    clear: left
+    border-bottom: 2px solid #0388a6
+    @extend .is-size-3
+    @extend .is-size-4-mobile
+    @extend .has-text-weight-bold
+    @extend .title
+
+.home-headers:after
+    @extend .icon
+    height: 3rem
+    width: 3rem
+    @extend .has-text-orange
+    @extend .fas
+    content: "\f542"
+    display: flex
+    text-align: center;
+    line-height: 3em
+    bottom: -3em
+
+.home-header-fa-power-off
+    @extend .home-header
+
+.home-headers-fa-power-off:after
+    content: #{$fa-var-power-off}
+
+
+.home-header ~ :not(.home-header)
+    overflow: hidden
+    @extend .is-size-5
+
+.home-header + :not(.home-header)
+    padding-top: 12px
+    padding-bottom: 12px
+
+.home-header ~ :not(.home-header)
+    padding-left: 32px
+    padding-right: 32px

@@ -1,7 +1,6 @@
 ---
 title: Home
 ---
-
 {{< home/section title="What is it?" iconclass="fas fa-2x fa-power-off">}}
 GitBOM is...
 

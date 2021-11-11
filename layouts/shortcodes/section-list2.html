@@ -1,12 +1,6 @@
 {{ $section := .Get 0 }}
 {{ $pages := union (where site.RegularPages "Section" $section) (where site.RegularPages ".Parent" $section) }}
 
-<ul>
-  {{ range $pages }}
-  <li>
-    <a href="{{ .RelPermalink }}">
-      {{ .Title }}
-    </a>
-  </li>
-  {{ end }}
-</ul>
+{{ range $pages }}
+* [{{.Title}}]({{ .RelPermalink }})
+{{end}}

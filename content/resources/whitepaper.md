@@ -1,14 +1,19 @@
++++
+title = "Whitepaper"
++++
+
+
 Towards a GitBOM Specification
 ===
 
-:::info
+{{% info %}}
 Author: Aeva Black 
 Contact: aeva dot online at gmail / @aeva on OFTC IRC / @aeva.online:matrix.org
 
 Updated: 2021-08-26
 
 Status: WORK-IN-PROGRESS / Seeking Collaborators
-:::
+{{% /info %}}
 
 ## Summary
 
@@ -133,9 +138,9 @@ This implies that we must not include build tooling in the artifact tree, as doi
 
 For further exploration of this topic, see Wheeler's work on reproducibility as a means to verify trustability: [Countering Trusting Trust through Diverse Double-Compiling](https://dwheeler.com/trusting-trust/)
 
-:::info
+{{% info %}}
 **Note the implication** that for any artifact, there can only be one artifact identity graph, but the reverse is not true. Each artifact identity graph may generate multiple artifacts (e.g., if different build parameters are used, or it is compiled on a different architecture, or different metadata, such as compile time, were embedded in the built artifact).
-:::
+{{% /info %}}
 
 #### 5. Transparently Opaque
 
@@ -177,17 +182,17 @@ Undoubtably, more will arise.  Independence of metadata independent permissionle
 
 ### Comparison to Software Bill Of Materials and our Objective
 
-:::info
+{{% info %}}
 GitBOM is **not** an SBOM standard.
-:::
+{{% /info %}}
 
 From the GitBOM perspective, any SBOM document is a type of artifact which could be referenced in an artifact tree.
 
 From an SBOM perspective, GitBOM is a common precise way to identify artifacts and their artifact trees, and nothing more. This makes GitBOM incapable of fulfilling many of the objectives of SBOMs, such as recording provenance, origination, build environment information, licensure, and other qualities.
 
-:::info
+{{% info %}}
 Speaking strictly from an **SPDX 3.0-draft** perspective, GitBOM is a lossy serialization format that only includes the minimum metadata field of "Identifier".
-:::
+{{% /info %}}
 
 Current metadata formats, such as SPDX 2.x, as well as current systems to sign and transport metadata documents, do not *efficiently* support [our use case](#Objective) in the general case. They may well, however, support this use case in a specialized case, which we will discuss.
 
@@ -271,9 +276,9 @@ blob_000TODO
   }
 }
 ```
-:::info
+{{% info %}}
 **NOTE**: The annotation type 'gitbom' is not yet standardized or accepted to OCI. In the above snipped, 'gitbom' is merely an example.
-:::
+{{% /info %}}
 
 ### Example: truncating a tree for non-public subtrees
 

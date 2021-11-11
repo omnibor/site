@@ -52,8 +52,36 @@ $tabs-link-active-border-bottom-color: $dark
 
 @import "bulma/bulma"
 
+$site-css-prefix: site
+
 @import "bullets"
 @import "columns"
 @import "hover-link"
 
 @import "hero"
+@import "home-header"
+@import "gdoc"
+@import "logo"
+@import "info"
+
+.content li
+    list-style-type: square
+
+.is-navbar-logo span
+    font-size: 2em
+
+.is-navbar-logo i
+    font-size: 3.3em
+
+.is-hero-logo
+  +desktop
+    width: 50%
+
+  +touch
+    width: 50%
+
+.is-logo
+    height: 100%
+
+.hero-body .is-logo
+    height: 3em
