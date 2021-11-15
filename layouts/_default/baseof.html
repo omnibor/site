@@ -5,6 +5,7 @@
     <title>
       {{ block "title" . }}{{ site.Title }}{{ end }}
     </title>
+    {{ template "_internal/google_analytics_async.html" . }}
     {{ partial "css.html" . }}
     {{ partial "js.html" . }}
   </head>
