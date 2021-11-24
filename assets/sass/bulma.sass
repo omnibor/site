@@ -1,0 +1,37 @@
+// Site-specific variables
+
+$gitbom-grey: #f0efe7
+$gitbom-orange: #f14e32
+$gitbom-blue: #0388a6
+$gitbom-light-grey: #eeeeee
+$gitbom-black: #000000
+$twitter-blue: rgb(29, 161, 242)
+
+@import "bulma/sass/utilities/initial-variables"
+
+$family-sans-serif: $site-sans-serif-font, BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+$family-monospace: $site-monospace-font, monospace
+
+@import "bulma/sass/utilities/functions"
+@import "bulma/sass/utilities/mixins"
+
+// Bulma variable overrides
+$primary: $gitbom-blue
+$secondary: $gitbom-orange
+$orange: $gitbom-orange
+$link: $orange
+$link-weight: 700
+$navbar-height: 4rem
+$navbar-item-img-max-height: $navbar-height * 0.8
+$tabs-border-bottom-width: 2px
+$tabs-link-padding: .7rem 1.1rem
+$code: $orange
+$code-background: $white-bis
+
+@import "bulma/sass/utilities/derived-variables"
+
+$colors: mergeColorMaps(("twitter-blue": ($twitter-blue, $white), "orange": ($orange, $white)), $colors)
+$tabs-link-active-color: $dark
+$tabs-link-active-border-bottom-color: $dark
+
+@import "bulma/bulma"

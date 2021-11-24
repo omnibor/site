@@ -1,0 +1,13 @@
+{{- $inServerMode := site.IsServer }}
+{{ $menuToggle := resources.Get "js/menu-toggle.js" | fingerprint }}
+{{ $anchorFix := resources.Get "js/anchor-fix.js" | fingerprint }}
+{{- if $inServerMode }}
+  <script src="{{ $menuToggle.RelPermalink }}" integrity="{{ $menuToggle.Data.Integrity }}"></script>
+  <script src="{{ $anchorFix.RelPermalink }}" integrity="{{ $anchorFix.Data.Integrity }}"></script>
+{{- else }}
+  {{ $js := slice $menuToggle $anchorFix | resources.Concat "js/bundle.js" }}
+  {{- $prodJs      := $js | minify | fingerprint }}
+  <script src="{{ $prodJs.RelPermalink }}" integrity="{{ $prodJs.Data.Integrity }}"></script>
+{{- end }}
+<script src="/modules/repo-map.js" type="module"></script>
+
