@@ -24,6 +24,8 @@
 	// Set *default* container specific settings.json values on container create.
 	"settings": {},
 
+	"features": {"github-cli": "latest"},
+
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
 		"akmittal.hugofy",
@@ -49,4 +51,15 @@
 	"remoteUser": "vscode",
 
 	"workspaceMount": "source=${localWorkspaceFolder}/,target=${containerWorkspaceFolder},type=bind,consistency=delegated",
+
+	// Run hugo serve on startup of devcontainer
+	"postStartCommand": "hugo serve",
+
+	// Launch GitBOM Website in browser
+	"portsAttributes": {
+		"1313": {
+			"label": "GitBOM Website",
+			"onAutoForward": "openBrowser"
+		}
+	},
 }
