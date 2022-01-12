@@ -7,7 +7,7 @@ GitBOM is neither [git](/glossary/#git) nor an [SBOM](/resources/glossay/#sbom).
 GitBOM is an ultra simple scheme for [primary build tools](/resources/glossay/#primary-build-tools) to embed into the artifact being built a
 short simple verifiable reference to complete artifact tree of that artifact with absolute precision all the way down to the source code. -->
 
-GitBOM is an ultra simple scheme for a [build tool](/glossary/build-tool) to:
+GitBOM is an ultra simple scheme for a [build tool](/glossary/build_tool) to:
 1. Construct a complete [artifact tree](/glossary/artifact_tree) with absolute precision all the way down to the individual source code files incorporated into the [artifact](/glossary/artifact) being built.
 2. Embed an id for that artifact tree into the artifact being built.
 
