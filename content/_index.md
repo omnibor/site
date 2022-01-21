@@ -8,6 +8,7 @@ GitBOM is an ultra simple scheme for [primary build tools](/resources/glossay/#p
 short simple verifiable reference to complete artifact tree of that artifact with absolute precision all the way down to the source code. -->
 
 GitBOM is a minimalistic scheme for [build tools](/glossary/build_tool) to:
+
 1. Build a compact [artifact tree](/glossary/artifact_tree), tracking every source code file incorporated into each built [artifact](/glossary/artifact).
 2. Embed an id for that artifact tree into the artifact being built.
 3. In a language-heterogenous environment, across packaging formats, with zero developer effort, involvement, or awareness.
