@@ -2,7 +2,7 @@
 {{ $anchor := lower (replaceRE "[[:space:]]" "-" $title )}}
 {{ $iconclass := default "fab fa-git-alt fa-2x" (.Get "iconclass") }}
 <section class="section">
-  <div class="columns is-gapless is-variable is-8">
+  <div class="columns is-variable is-8">
     <div class="column is-one-quarter">
       <p class="title is-size-3 is-size-4-mobile has-text-weight-bold hoverlinked">
           <a id="{{ $anchor | safeURL }}" class="anchor" aria-hidden="true" href="#{{ $anchor | safeURL }}">
