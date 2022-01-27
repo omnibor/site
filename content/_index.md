@@ -69,7 +69,9 @@ where 'leaf' artifacts like source code files should omit the `⎵bom⎵${gitref
 blob⎵${git ref of child which is a leaf artifact}
 ```
 
-GitBOM advocates for [primary build tools](/resources/glossay/#primary-build-tools) (compilers, linkers, docker build, etc) to embed metadata containing the gitref of the artifacts GitBOM document into the artifact output by those tools. Possible examples:
+GitBOM advocates for [build tools](/resources/glossay/#primary-build-tools) (compilers, linkers, docker build, etc) to embed metadata containing the gitref of the artifacts GitBOM document into the artifact output by those tools. 
+
+Examples:
 
 - elf file section named '.bom' for executables, .o files, .so files
 - @BOM annotation in java .class files

@@ -1,5 +1,6 @@
 +++
 title = "Artifact"
+toc=true
 +++
 
 ## Artifact 
@@ -16,17 +17,50 @@ Examples:
 - executable file
 - container image
 
-{{% notification type="info" %}}
 What all artifacts have in common is that they are all arrays of bytes ([]byte).
 
-**Two artifacts are equivalent IFF `[]byte(artifact1) == []byte(artifact2)`.**
-{{% /notification %}}
+## Artifact Equivalency
 
-## Leaf Artifacts
-
-Some artifacts, usually source code files, are painstakingly constructed by hand by humans.  These are called 'leaf artifacts'.
-
+Two artifacts are equivalent if and only if `[]byte(artifact1) == []byte(artifact2)`
 
 ## Derived Artifacts
 
-Most artifacts are produced by a [build tool](/glossary/build_tool) consuming some set of input artifacts to produce an output artifact.
+Most artifacts are produced by a [build tool](/glossary/build_tool) consuming some set of input artifacts to produce an artifact as an output.
+Such artifacts are said to be 'derived artifacts'.
+
+
+## Leaf Artifacts
+
+Artifacts which are not 'derived artifacts' as said to be 'leaf artifacts'.
+Leaf artifacts are usually source code files constructed by hand by humans.
+
+
+Examples:
+
+- "foo.o is derived from foo.c and bar.h using gcc"
+- "fooexecutable is derived from foo.o and baz.o using ld"
+- "foo.class is derived from foo.java using javac"
+
+## Artifact Identifiers
+
+It should be possible to identify each artifact with an artifact id.
+
+Artifact IDs should have the following characteristics:
+
+{{% notification type="info" %}}
+**Canonical**
+: *Independent parties, presented with equivalent artifacts, derive the same artifact identity.*
+
+**Unique**
+: *Non-equivalent artifacts have distinct identities.*
+
+**Immutable**
+: *An identified artifact can not be modified without also changing its identity.*
+{{% /notification %}}
+
+GitBOM advocates for using the [Git Ref](/glossary/gitref) of an artifact as its artifact ID.
+
+Source code [leaf artifacts](#leaf-artifacts) are typically already being stored in [git](/glossary/git) where they are identified via their gitref.
+
+## Recommended Additional Reading
+- [artifact trees](/glossary/artifact_tree)
