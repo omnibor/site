@@ -1,5 +1,6 @@
 +++
 title = "Build Tool"
+toc=true
 +++
 
 # Build Tools

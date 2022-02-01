@@ -4,25 +4,22 @@ toc = "true"
 +++
 
 
-Towards a GitBOM Specification
+GitBOM: Enabling Universal Artifact Traceability In Software Supply Chains
 ===
 
 {{% notification type="info" %}}
-Author: Aeva Black 
-Contact: aeva dot online at gmail / @aeva on OFTC IRC / @aeva.online:matrix.org
+Author: Aeva Black
 
-Updated: 2021-08-26
+Status: DRAFT
 
-Status: WORK-IN-PROGRESS / Seeking Collaborators
+Last updated: 2022-01-25
 {{% /notification %}}
 
 ## Summary
 
-GitBOM is neither `git` nor an SBOM.
+GitBOM is an application of the [git](https://en.wikipedia.org/wiki/Git) [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph), a widely used merkle tree with a flat-file storage format, to the challenge of creating build artifact trees in today's language-heterogeneous open source environments. Contrary to the name's appearance, GitBOM is neither dependent on `git` nor is it a Software Bill Of Materials (SBOM).
 
-It is an application of the git DAG, a widely used merkle tree with a flat-file storage format, to the challenge of creating build artifact trees in today's language-heterogeneous open source environments.
-
-By generating artifact trees at build time, embedding the hash of the tree in produced artifacts, and referencing that hash in the next build step, GitBOM will enable the zero-end-user-effort creation of verifiable artifact trees. Furthermore, it will enable launch-time comparison of vulnerability data against a complete artifact tree for both open source and proprietary projects (if vuln data is traceable back to source file).
+By generating artifact trees at build time, embedding the hash of the tree in produced artifacts, and referencing that hash in each subsequent build step, GitBOM will enable the creation of verifiable and complete artifact trees while requiring no effort from, or changes in, most open source projects. Furthermore, it will enable efficient correlation of vulnerability databases against a concise representation of the artifact tree within run-time environments, if vulnerability databases can be correlated to source files or intermediary packages or libraries. These benefits would also accrue to closed-source projects that use the same build tools, and provide insights which span both open and closed source components in a consistent manner.
 
 ### Objective
 
@@ -49,7 +46,7 @@ Following from (2), this on-disk format provides an efficient and already well-u
 ### ASCII-Art Flow Chart
 ```
  ┌─────────────────────────────┐
- │ Build-time Tree Generation  │
+ │ Build Time: Tree Generation │
  │                             │
  │ ┌────────┐   ┌────────┐     │
  │ │ Src  A │   │ Src  B │     │
@@ -76,18 +73,19 @@ Following from (2), this on-disk format provides an efficient and already well-u
    └──────┬───┘   └┬─────┘
           │        │
   ┌───────┼────────┼────────────────────────────┐
-  │       │        │     Launch Time Comparison │
+  │       │        │     Run Time: Comparison   │
   │       │        │                            │
   │       ▼        ▼            ┌────────────┐  │
   │     ┌───────────────┐       │   Public   │  │
   │     │     Policy    │◄─────►│    Vuln    │  │
   │     │  Enforcement  │       │  Database  │  │
   │     └─┬─────────────┘       └────────────┘  │
-  │       │                                     │
-  │       ▼                                     │
-  │      ┌─────────────────────┐                │
-  │      │ Runtime Environment │                │
-  │      └─────────────────────┘                │
+  │       │                           |         │
+  │       ▼                           ▼         │
+  │      ┌─────────────┐       ┌────────────┐   │
+  │      │ Runtime     |       |  Scanning  |   |
+  |      | Environment │◄─────►│    Tools   |   │
+  │      └─────────────┘       └────────────┘   │
   │                                             │
   └─────────────────────────────────────────────┘
 
@@ -294,66 +292,21 @@ blob_000TODO
 
 ## Proposed Implementation
 
-### Spec for Compiled Artifacts
+### For Compiled Artifacts
 
 **TODO:** Replace / reformat examples as a specification
 - *Describe implementation for GCC*
 - *Describe implementation for LLVM*
 - *Address container image composition*
 
-### Spec for Non-compiled Artifacts
+### For Non-compiled Artifacts
 
 **TODO**
 - *Address run-time compiled languages, such as python and java*
 
 
-## How To Get Involved
+## Credits and Gratitudes
 
-### Taking a Phased Approach
-1. (*we're here*) Refine this idea into a formal proposal
-2. Build a command-line proof of concept to demonstrate the document storage format and interfaces
-4. Engage with one or two compiled languages to prove the concept more fully
-5. Verify with a one or two non-compiled languages
-6. Socialize to foundations, companies, and conferences (ongoing now, Sept 2021)
-7. ??? (*magic happens*)
-8. Profit! (from the savings b/c oss projects' vulns can be found more easily)
+I must thank Ed Warnicke, who pitched this idea to me one sunny summer afternoon in 2021 while I was stuck in Puget Sound traffic, and who graciously accomodated my awkward schedule throughout the rest of the year, most often while both of us were in a car.
 
-### Language Support
-
-Identify languages/compilers of initial interest:
-- C#: Initial conversation with Terrapin folks went well, requested further feedback and examples of output format.
-- Rust: early/exploratory conversations underway
-- GCC: TODO
-- LLVM: TODO
-- GoLang: TODO
-- Python: TODO
-
-*What else?*
-
-### Where to Engage
-
-**Temporary Channel**: 
-[Join the 'gitbom' channel](https://openssf.slack.com/archives/C02D1JYQLPQ) on the OpenSSF Slack Instance.
-
-*Permanent Community location TBD*
-
-## Credits & References
-
-Many thanks to Ed Warnicke, who pitched this to me while I was stuck in Puget Sound traffic, and who has graciously accomodated my awkward schedule as we continued to discuss GitBOM while one or both of us were in a car.
-
-* [GitBOM Intro Slides](https://docs.google.com/presentation/d/1-Mm-E9lqHQAXfDviVuD4Jk5CW6dJobFaFXT1TGRsowY/edit#slide=id.gdf5b542550_0_611) - General overview of GitBOM
-* [Defending the Software Supply Chain](https://docs.google.com/presentation/d/14t_B2VrKqLDHZ6pPV7siSowRoAR7ZeRanbnxBOnrIBs/edit#slide=id.p) - describes supporting relationship between GitBOM, SLSA, sigstore, in-toto, SPIFFE/SPIRE 
-* [GitBOM & LLVM](https://docs.google.com/presentation/d/1tYDASJEIogy7nLm0xNBeE_5UUig7iZGt7kIbg9BcanY/edit#slide=id.gdfabf90051_0_0) - describes potential integration with LLVM and embedded references in ELF headers 
-
-
-Many thanks to everyone who added input and feedback to my "Landscape" document, though I now prefer the metaphor of a backpack: these are the tools one may choose to pack before *embarking on a journey into the OSS SSC landscape*. This reframing allowed me to identify a tool that was missing from my "supply chain backpack": the GitBOM.
-
-* [OSS SSC Landscape](https://docs.google.com/document/d/1KT5QPCgVx_8UFIKv8-0k9GYjfcL3uvHmK4COOEGq_UQ/edit#heading=h.nx7cqnn6akii) - overview of the open source software supply chain "landscape"
-* [Mapping industry role to sbom proximity](https://docs.google.com/drawings/d/14mi30Gd45RNCguXjgBdYb9TNhNxIFTJuyZjdyPWJBHc/edit) 
-* [Mapping formats, artifacts, tools, storage, and identity](https://docs.google.com/drawings/d/1H0B9oKP_WN6wNlLqUjlVxC4PYLMzuDk002PfYJ0lyz4/edit)
-
-
-Presentation & Discussion at CNCF STAG Supply Chain Working Group: https://youtu.be/FJRCKQAbhhY
-
-
-Is SHA1 trustable for this purpose? Yes - https://badhomb.re/git/sha1/rant/2017/03/04/shattered.html 
+I must also thank everyone who provided input and feedback to my "Open Source Landscape" document in 2021, which I have since migrated to a [github repo](https://github.com/AevaOnline/supply-chain-synthesis). The knowledge I gained through those discussions allowed me to identify a tool that was missing from my "supply chain backpack": the GitBOM.
