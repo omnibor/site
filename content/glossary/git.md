@@ -44,4 +44,4 @@ Git Blobs are identified by the sha1 of the blob object:
 There is some nacent movement in git to [SHA-256](https://git-scm.com/docs/hash-function-transition/) for gitrefs.
 As the purpose of GitBOM using gitrefs for [artifact ids](/glossary/artifact#artifact-identifiers) is to match the indexing
 of the [leaf artifacts](/glossary/artifact/#leaf-artifacts) (aka source files), it is anticipated that GitBOM will follow
-gits transition to SHA-256 at the rate it is adopted.
+git's transition to SHA-256 at the rate it is adopted.
