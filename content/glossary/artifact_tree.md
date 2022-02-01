@@ -5,7 +5,7 @@ toc=true
 
 ## Artifact Tree
 
-The artifact tree of an [artifact](/glossary/artifact) is the recursive DAG (Directed Acyclic Graph) of all the [input artifacts](/glossary/artifact/#input_artifacts) that are transformed by a [build tool](/glossary/build_tool) into
+The artifact tree of an [artifact](/glossary/artifact) is the recursive DAG (Directed Acyclic Graph) of all the `input artifacts` that are transformed by a [build tool](/glossary/build_tool) into
 that artifact.  It includes the direct input artifacts, and the recursive set of artifacts to each input artifact, all the way down the tree.
 
 ### C Examples
@@ -92,7 +92,7 @@ flowchart BT
 
 ## Representation
 
-The artifact tree can be represented as a tree with the nodes identified by an [artifact id](/glossary/artifact#artifact_identifiers).
+The artifact tree can be represented as a tree with the nodes identified by an [artifact id](/glossary/artifact#artifact-identifiers).
 
 ```mermaid
 flowchart BT
@@ -104,7 +104,7 @@ flowchart BT
     Artifact-7[Artifact-7 ID] --> Artifact-3[Artifact-3 ID]
 ```
 
-GitBOM advocates for using the [Git Ref](/glossary/gitref) of an artifact as its [artifact id](/glossary/artifact#artifact_identifiers):
+GitBOM advocates for using the [Git Ref](/glossary/git/#git-ref) of an artifact as its [artifact id](/glossary/artifact#artifact-identifiers):
 
 ```mermaid
 flowchart BT
@@ -164,4 +164,4 @@ blob⎵${git ref of Artifact-3}⎵bom⎵${git ref of Artifact-2's GitBOM}\n
 ```
 
 ## Recommended Additional Reading
-- [gitbom id embedding](/glossary/gitbom_id_embedding)
+- Find out how [GitBOM](/glossary/gitbom) represents artifact trees.
