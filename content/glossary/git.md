@@ -23,7 +23,7 @@ ${content} - []byte of the content
 
 # Git Blob
 
-A git `blob` is the type used for file contents in git:
+A git [blob](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects) (binary large object) is the type used for file contents in git:
 
 ![gitblob](/img/git_blob.svg)
 
@@ -32,11 +32,16 @@ A git `blob` is the type used for file contents in git:
   - Does not include mode information
   - Does not include *any* metadata
   - Just the contents
-  - Any file anywhere with the same contents will have the same ‘blob’ object
-  - Any file anywhere with the same contents will have the same git ref
+  - **Any file anywhere with the same contents will have the same ‘blob’ object**
+  - **Any file anywhere with the same contents will have the same git ref**
 
 
 # Git Ref
 
 Git Blobs are identified by the sha1 of the blob object:
  ![gitref](/img/gitref.svg)
+
+There is some nacent movement in git to [SHA-256](https://git-scm.com/docs/hash-function-transition/) for gitrefs.
+As the purpose of GitBOM using gitrefs for [artifact ids](/glossary/artifact#artifact-identifiers) is to match the indexing
+of the [leaf artifacts](/glossary/artifact/#leaf-artifacts) (aka source files), it is anticipated that GitBOM will follow
+gits transition to SHA-256 at the rate it is adopted.
