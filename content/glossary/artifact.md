@@ -31,7 +31,7 @@ Such artifacts are said to be 'derived artifacts'.
 
 ## Leaf Artifacts
 
-Artifacts which are not 'derived artifacts' as said to be 'leaf artifacts'.
+Artifacts which are not 'derived artifacts' are said to be 'leaf artifacts'.
 Leaf artifacts are usually source code files constructed by hand by humans.
 
 

@@ -119,7 +119,7 @@ flowchart BT
 ### GitBOM Document
 The parent-child relationship is captured by a set of GitBOM Documents.
 
-Each artifact has a GitBOM document that describes its immediate children consiting of a set of new line delimited records, one for each child, in lexical order.
+Each artifact has a GitBOM document that describes its immediate children consisting of a set of new line delimited records, one for each child, in lexical order.
 
 A child artifact which is itself a [leaf artifacts](/glossary/artifact/#leaf-artifacts) would be represented by
 
