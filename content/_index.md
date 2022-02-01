@@ -2,10 +2,7 @@
 title: Home
 ---
 {{< home/section title="What?" iconclass="fas fa-2x fa-power-off">}}
-GitBOM is neither [git](/glossary/git) nor an [SBOM](/resources/glossay/#sbom).
-<!-- 
-GitBOM is an ultra simple scheme for [primary build tools](/resources/glossay/#primary-build-tools) to embed into the artifact being built a
-short simple verifiable reference to complete artifact tree of that artifact with absolute precision all the way down to the source code. -->
+GitBOM is neither [git](/glossary/git) nor an [SBOM](/glossary/sbom).
 
 GitBOM is a minimalistic scheme for [build tools](/glossary/build_tool) to:
 
@@ -18,19 +15,7 @@ GitBOM is a minimalistic scheme for [build tools](/glossary/build_tool) to:
 
 GitBOM applies the [Unix Philosophy](https://en.wikipedia.org/wiki/Unix_philosophy) of "do one thing, and do it well." GitBOM constructs [artifact trees](/glossary/artifact_tree).
 
-<!-- GitBOM borrows the use of [merkle tree](/resources/glossay/#merkle-tree) and the [gitref](/resources/glossay/#merkle-tree) from [git](/resources/glossay/#mgit) to construct a [verifiable bare artifact tree](/resources/glossay/#verifiable-bare-artifact-tree) in a manner suitable for [primary build tools](/resources/glossay/#primary-build-tools) to compute the GitBOM for an artifact and embed a unqiue, immutable, verifiable GitBOM id in the artifact being built. 
-in language-heterogenuous environments with zero-end-user-effort. -->
-
 {{< /home/section >}}
-<!-- 
-{{< home/section title="GitBOM is not:" iconclass="fas fa-2x fa-power-off">}}
-1. Not a system for build reproducability, but it does provide information that is useful for that.
-2. Not a version control system, though it is designed to co-exist with them.
-3. Not an SBOM, though it is designed to complement them.
-4. Not a globally unique software identifier (SWID).
-5. Not reliant on any particular packaging or distribution mechanism, either for artifacts or for artifact identity graphs).
-{{< /home/section >}} -->
-
 
 {{< home/section title="Why?" >}}
 By correlating every piece of software to a verifiable, complete, and concise artifact tree, GitBOM enables: 
@@ -50,12 +35,12 @@ By correlating every piece of software to a verifiable, complete, and concise ar
 {{< /home/section >}}
 
 {{< home/section title="How?">}}
-Drawing on the version control system `git`, GitBOM observes that:
+Drawing on the version control system [git](/glossary/git), GitBOM observes that:
 
-1. Every artifact is a [blob](/resources/glossay/#merkle-tree)
-2. Every blob has a [gitref](/resources/glossay/#merkle-tree)
-3. Therefore the gitref may be used as an artifact id for an artifact
-4. Most source code artifacts are stored already with their gitref as their id
+1. Every artifact is a [blob](/glossary/git#blob)
+2. Every blob has a [gitref](/glossary/git#git-ref)
+3. Therefore the [gitref](/glossary/git#git-ref) may be used as an [artifact id](/glossary/artifact-identifier) for an [artifact](/glossary/artifact)
+4. Most source code artifacts are stored already with their [gitref](/glossary/git#git-ref) as their id
 
 GitBOM likewise observes that for every artifact we can express its immediate children as a simple document consisting of new line seperated records, in lexical order, one per child:
 
@@ -69,7 +54,9 @@ where 'leaf' artifacts like source code files should omit the `⎵bom⎵${gitref
 blob⎵${git ref of child which is a leaf artifact}
 ```
 
-GitBOM advocates for [primary build tools](/resources/glossay/#primary-build-tools) (compilers, linkers, docker build, etc) to embed metadata containing the gitref of the artifacts GitBOM document into the artifact output by those tools. Possible examples:
+GitBOM advocates for [build tools](/resources/glossay/#primary-build-tools) (compilers, linkers, docker build, etc) to embed metadata containing the gitref of the artifacts GitBOM document into the artifact output by those tools. 
+
+Examples:
 
 - elf file section named '.bom' for executables, .o files, .so files
 - @BOM annotation in java .class files
