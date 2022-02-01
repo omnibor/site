@@ -69,4 +69,4 @@ Examples include but are not limited to:
 
 Most SBOMs allow for 'external identifiers' and can thus use git refs to reference the artifacts in the GitBOM [artifact trees](/glossary/artifact_tree).
 
-[GitBOM](/glossary/gitbom) helps improve SBOMs, it does not seek to *be* an SBOM.
+GitBOM can help [SBOMs](/glossary/sbom) be more precise and reliable.
