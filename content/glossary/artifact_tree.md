@@ -90,78 +90,10 @@ flowchart BT
     pyc5 --> running[running exectuable]
 ```
 
-## Representation
+## Artifact tree singularity
 
-The artifact tree can be represented as a tree with the nodes identified by an [artifact id](/glossary/artifact#artifact-identifiers).
+An artifact should have precisely one artifact tree. All [equivalent artifacts](/glossary/artifact/#artifact-equivalency) should have the same artifact tree.
 
-```mermaid
-flowchart BT
-    Artifact-2[Artifact-2 ID] --> Artifact-1[Artifact-1 ID]
-    Artifact-3[Artifact-3 ID] --> Artifact-1[Artifact-1 ID]
-    Artifact-4[Artifact-4 ID] --> Artifact-2[Artifact-2 ID]
-    Artifact-5[Artifact-5 ID] --> Artifact-2[Artifact-2 ID]
-    Artifact-6[Artifact-6 ID] --> Artifact-3[Artifact-3 ID]
-    Artifact-7[Artifact-7 ID] --> Artifact-3[Artifact-3 ID]
-```
-
-GitBOM advocates for using the [Git Ref](/glossary/git/#git-ref) of an artifact as its [artifact id](/glossary/artifact#artifact-identifiers):
-
-```mermaid
-flowchart BT
-    Artifact-2[Artifact-2 Git Ref] --> Artifact-1[Artifact-1 Git Ref]
-    Artifact-3[Artifact-3 Git Ref] --> Artifact-1[Artifact-1 Git Ref]
-    Artifact-4[Artifact-4 Git Ref] --> Artifact-2[Artifact-2 Git Ref]
-    Artifact-5[Artifact-5 Git Ref] --> Artifact-2[Artifact-2 Git Ref]
-    Artifact-6[Artifact-6 Git Ref] --> Artifact-3[Artifact-3 Git Ref]
-    Artifact-7[Artifact-7 Git Ref] --> Artifact-3[Artifact-3 Git Ref]
-```
-
-### GitBOM Document
-The parent-child relationship is captured by a set of GitBOM Documents.
-
-Each artifact has a GitBOM document that describes its immediate children consisting of a set of new line delimited records, one for each child, in lexical order.
-
-A child artifact which is itself a [leaf artifacts](/glossary/artifact/#leaf-artifacts) would be represented by
-
-```
-blob⎵${git ref of child}\n
-```
-
-A child artifact which is itself a [derived artifact](/glossary/artifact/#derived-artifacts) would be represented by
-```
-blob⎵${git ref of child}⎵bom⎵${gitref of child's GitBOM document}\n
-```
-
-Example:
-
-```mermaid
-flowchart BT
-    Artifact-2[Artifact-2 Git Ref] --> Artifact-1[Artifact-1 Git Ref]
-    Artifact-3[Artifact-3 Git Ref] --> Artifact-1[Artifact-1 Git Ref]
-    Artifact-4[Artifact-4 Git Ref] --> Artifact-2[Artifact-2 Git Ref]
-    Artifact-5[Artifact-5 Git Ref] --> Artifact-2[Artifact-2 Git Ref]
-    Artifact-6[Artifact-6 Git Ref] --> Artifact-3[Artifact-3 Git Ref]
-    Artifact-7[Artifact-7 Git Ref] --> Artifact-3[Artifact-3 Git Ref]
-```
-
-Artifact-2's GitBOM:
-
-```
-blob⎵${git ref of Artifact-4}\n
-blob⎵${git ref of Artifact-5}\n
-```
-
-Artifact-3's GitBOM:
-```
-blob⎵${git ref of Artifact-6}\n
-blob⎵${git ref of Artifact-7}\n
-```
-
-Artifact-1's GitBOM:
-```
-blob⎵${git ref of Artifact-2}⎵bom⎵${git ref of Artifact-2's GitBOM}\n
-blob⎵${git ref of Artifact-3}⎵bom⎵${git ref of Artifact-2's GitBOM}\n
-```
 
 ## Recommended Additional Reading
 - Find out how [GitBOM](/glossary/gitbom) represents artifact trees.
