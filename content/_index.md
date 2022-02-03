@@ -35,20 +35,28 @@ In short, it would let anyone easily answer the question, "Does this product con
 {{< /home/section >}}
 
 {{< home/section title="How?" >}}
+**How does [GitBOM](glossary/gitbom/) improve software identification and vulnerability management?**
 
-[GitBOM](/glossary/gitbom) creatively re-purposes [git](https://en.wikipedia.org/wiki/Git)'s [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) to do all this.
+[GitBOM](glossary/gitbom/) proposes a solution to both the completeness and the efficiency challenges facing other supply chain tools.
+- By correlating every piece of software with a verifiable and complete tree of all the "ingredients" that went into it (source files, dependencies, object files, etc.), [GitBOM](glossary/gitbom/) enables the identification of software derived from sources known to contain vulnerabilities.
+- [GitBOM](glossary/gitbom/) only includes the minimum information -- a "fingerprint" -- of the dependency graph, to enable efficient run-time scanning for a known-vulnerable artifact
+- A [GitBOM](glossary/gitbom/) [artifact tree](/glossary/artifact_tree) can be cross-referenced against known vulnerabilities, regardless of the dependency depth or language.
 
-With GitBOM, we propose a solution to both the completeness and the efficiency challenges facing other supply chain tools.
+**How does [GitBOM](glossary/gitbom/) work?**
 
-- By correlating every piece of software with a verifiable and complete tree of all the "ingredients" that went into it, GitBOM enables the identification of software derived from sources known to contain vulnerabilities.
-- Unlike SBOMs, which contain metadata unrelated to the task of representing the dependency graph, GitBOM only includes the minimum information -- a "fingerprint" -- to enable efficient run-time scanning.
-- A GitBOM [artifact tree](/glossary/artifact_tree) can be cross-referenced against known vulnerabilities, regardless of the dependency depth and language.
+Drawing on the version control system [git](/glossary/git/), [GitBOM](glossary/gitbom/) observes that:
+
+1. Every artifact is a [blob](/glossary/git/#git-blob)
+2. Every [blob](/glossary/git/#git-blob) can be referenced by its [gitref](/glossary/git/#git-ref)
+3. The [gitref](glossary/git/#git-ref) may be used as an [artifact ID](/glossary/artifact/#artifact-identifiers) for [leaf artifacts](/glossary/artifact/#leaf-artifacts) (In fact, today most source code artifacts are already stored with their git commit as their ID)
+4. [Artifact IDs](/glossary/artifact/#artifact-identifiers) can be extended to [derived artifacts](glossary/artifact/#derived-artifacts) by producing [GitBOM Documents](/glossary/gitbom/#gitbom-document)
+5. [Build tools](/glossary/#build-tool) can embed [GitBOM Document Identifiers](/glossary/gitbom/#gitbom-identifier) into the [derived artifacts](glossary/artifact/#derived-artifacts) they produce
+
+[GitBOM](/glossary/gitbom) creatively re-purposes [git](https://en.wikipedia.org/wiki/Git)'s [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) to do all this. For a deeper analysis of this proposal, check out the **[white paper](resources/whitepaper)**.
 
 We believe this approach can work across all packaging formats, language ecosystems, and operating systems.
 
-For a deeper analysis of this proposal, check out the **[white paper](resources/whitepaper)**.
-
-We'd like your help to build it.
+And we'd like your help to build it.
 {{< /home/section >}}
 
 {{< home/section title="Get Involved">}}
