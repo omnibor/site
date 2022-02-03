@@ -15,7 +15,8 @@ To propose a question-answer pair, please open [a pull request](https://github.c
 
 Git itself still uses sha1, and we'd like to be compatible with git and tools that already use gitrefs. We plan to update to another hashing algorithm if/when git updates.
 
-While [shattered.io](https://shattered.io/) broke sha1 in PDF files, it relied on including arbitrary non-functional padding to do so.
+[shattered.io](https://shattered.io/) has found an impressive attack on SHA-1 in PDF files.  There are [misconceptions about what that means](https://manishearth.github.io/blog/2017/02/26/clarifying-misconceptions-about-shattered/).
+GitHub has published some analysis of its [implications for git](https://github.blog/2017-03-20-sha-1-collision-detection-on-github-com/).
 
 ## Git has been considering moving to sha256 for some time. Why doesn't GitBOM simply adopt that?
 
