@@ -35,14 +35,14 @@ In short, it would let anyone easily answer the question, "Does this product con
 {{< /home/section >}}
 
 {{< home/section title="How?" >}}
-**How does [GitBOM](glossary/gitbom/) improve software identification and vulnerability management?**
+##### How does [GitBOM](glossary/gitbom/) improve software identification and vulnerability management?
 
 [GitBOM](glossary/gitbom/) proposes a solution to both the completeness and the efficiency challenges facing other supply chain tools.
 - By correlating every piece of software with a verifiable and complete tree of all the "ingredients" that went into it (source files, dependencies, object files, etc.), [GitBOM](glossary/gitbom/) enables the identification of software derived from sources known to contain vulnerabilities.
 - [GitBOM](glossary/gitbom/) only includes the minimum information -- a "fingerprint" -- of the dependency graph, to enable efficient run-time scanning for a known-vulnerable artifact
 - A [GitBOM](glossary/gitbom/) [artifact tree](/glossary/artifact_tree) can be cross-referenced against known vulnerabilities, regardless of the dependency depth or language.
 
-**How does [GitBOM](glossary/gitbom/) work?**
+##### How does [GitBOM](glossary/gitbom/) work?
 
 Drawing on the version control system [git](/glossary/git/), [GitBOM](glossary/gitbom/) observes that:
 
