@@ -2,28 +2,40 @@
 title: Home
 ---
 {{< home/section title="What?" iconclass="fas fa-2x fa-power-off">}}
-**GitBOM** is creative re-purposing of [git](https://en.wikipedia.org/wiki/Git)'s [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) to enable **automatic verifiable artifact resolution** across today's language-heterogeneous open source supply chains.
+
+**[GitBOM](/glossary/gitbom)** is a minimalistic scheme for [build tools](/glossary/build_tool) to:
+1. Build a compact [artifact tree](/glossary/artifact_tree), tracking every source code file incorporated into each built [artifact](/glossary/artifact).
+2. Embed a unique, content-addressable reference for that [artifact tree](/glossary/artifact_tree/), the [GitBOM identifier](/glossary/gitbom/#gitbom-identifier), into the [artifact](/glossary/artifact) at build time.
+
+[GitBOM](/glossary/gitbom) is designed to:
+- Consistently construct verifiable [artifact trees](/glossary/artifact_tree) across languages, environments, and packaging formats, with zero developer effort, involvement, or awareness
+- Enable automatic, verifiable [artifact](/glossary/artifact) resolution across today's diverse software supply chains
+- Complement SBOMs, such as [SPDX](https://spdx.dev/), [CycloneDX](https://cyclonedx.org/), or [SWID](https://nvd.nist.gov/products/swid)
+- Co-exist with, but not require, version control systems
 
 {{% notification type="info" %}}
-**Note that GitBOM is not a replacement for [SBOM](/glossary/sbom)s**, nor is it a version control system or a signing scheme.
+**[GitBOM](/glossary/gitbom) is NOT** (contrary to the name's appearance):
+- [Git](/glossary/git)
+- An [SBOM](/resources/glossary/#sbom), nor a replacement for SBOMs
+- A version control system
+- A signing scheme
 
 It is compatible with, and augments, these classes of tools.
 {{% /notification %}}
 
-Contrary to the name's appearance, GitBOM is neither [git](/glossary/git) nor an [SBOM](/glossary/sbom) -- it is a minimalistic scheme for all [build tools](/glossary/build_tool) to:
+[GitBOM](/glossary/gitbom) applies the [Unix Philosophy](https://en.wikipedia.org/wiki/Unix_philosophy) of "do one thing, and do it well."
 
-1. Generate a compact [artifact tree](/glossary/artifact_tree) which correlates source and object files involved in the generation of any built [artifact](/glossary/artifact).
-2. Embed a unique [content-addressable reference](/glossary/gitbom/#gitbom-identifier) for that [artifact tree](/glossary/artifact_tree) into the [artifact](/glossary/artifact) at build time.
-3. And do this consistently across languages, environments, and packaging formats, with zero developer effort, involvement, or awareness.
 {{< /home/section >}}
 
 {{< home/section title="Why?" >}}
-By correlating every software [artifact](/glossary/artifact) to a verifiable, complete, and concise [artifact tree](/glossary/artifact_tree), GitBOM enables run-time detection of potential vulnerabilities, regardless of the depth in a depencency tree from which that vulnerability originated.
+By correlating every software [artifact](/glossary/artifact) to a verifiable, complete, and concise [artifact tree](/glossary/artifact_tree), GitBOM enables run-time detection of potential vulnerabilities, regardless of the depth in a dependency tree from which that vulnerability originated.
 
-In short, it would let anyone easily answer the question, "does this product contain log4j?".
+In short, it would let anyone easily answer the question, "Does this product contain log4j?"
 {{< /home/section >}}
 
 {{< home/section title="How?" >}}
+
+[GitBOM](/glossary/gitbom) is creative re-purposing of [git](https://en.wikipedia.org/wiki/Git)'s [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph).
 
 With GitBOM, we propose a solution to both the completeness and the efficiency challenges facing other supply chain tools.
 
