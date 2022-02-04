@@ -16,18 +16,19 @@ title: Home
 {{% notification type="info" %}}
 **[GitBOM](/glossary/gitbom) is NOT** (contrary to the name's appearance):
 - [Git](/glossary/git)
-- An [SBOM](/resources/glossary/#sbom), nor a replacement for SBOMs
+- An [SBOM](/resources/glossary/sbom), nor a replacement for SBOMs
 - A version control system
 - A signing scheme
 
 It is compatible with, and augments, these classes of tools.
 {{% /notification %}}
 
-[GitBOM](/glossary/gitbom) applies the [Unix Philosophy](https://en.wikipedia.org/wiki/Unix_philosophy) of "do one thing, and do it well."
 
 {{< /home/section >}}
 
 {{< home/section title="Why?" >}}
+[GitBOM](/glossary/gitbom) applies the [Unix Philosophy](https://en.wikipedia.org/wiki/Unix_philosophy) of "do one thing, and do it well."
+
 By correlating every software [artifact](/glossary/artifact) to a verifiable, complete, and concise [artifact tree](/glossary/artifact_tree), GitBOM enables run-time detection of potential vulnerabilities, regardless of the depth in a dependency tree from which that vulnerability originated.
 
 In short, it would let anyone easily answer the question, "Does this product contain log4j?"
@@ -35,7 +36,7 @@ In short, it would let anyone easily answer the question, "Does this product con
 
 {{< home/section title="How?" >}}
 
-[GitBOM](/glossary/gitbom) is creative re-purposing of [git](https://en.wikipedia.org/wiki/Git)'s [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph).
+[GitBOM](/glossary/gitbom) creatively re-purposes [git](https://en.wikipedia.org/wiki/Git)'s [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) to do all this.
 
 With GitBOM, we propose a solution to both the completeness and the efficiency challenges facing other supply chain tools.
 
