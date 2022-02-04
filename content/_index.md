@@ -35,7 +35,7 @@ By constructing a complete, concise, and verifiable [artifact tree](/glossary/ar
 
 By creating a unique, immutable, verifiable identifier (the [GitBOM ID](/glossary/gitbom/#gitbom-identifier)) for every [software artifact](/glossary/artifact), [GitBOM](/glossary/gitbom):
 - enables any metadata ([SBOM](/glossary/sbom), license, support info, security advisories, etc.) to be linked to a specific set of corresponding [software artifacts](/glossary/artifact)
-- improves component naming challenges impacting [SBOM](/glossary/sbom) adoption
+- provides a precise [artifact identifier](/glossary/artifact/#artifact-identifiers) which can be used in SBOMs in situations where [naming schemes](/glossary/gitbom/#gitbom-complements-sbom) may be ambiguous
 
 In short, it would let anyone easily answer the question, "Does this product contain log4j?"
 {{< /home/section >}}
