@@ -29,7 +29,13 @@ It is compatible with, and augments, these classes of tools.
 {{< home/section title="Why?" >}}
 [GitBOM](/glossary/gitbom) applies the [Unix Philosophy](https://en.wikipedia.org/wiki/Unix_philosophy) of "do one thing, and do it well."
 
-By correlating every software [artifact](/glossary/artifact) to a verifiable, complete, and concise [artifact tree](/glossary/artifact_tree), GitBOM enables run-time detection of potential vulnerabilities, regardless of the depth in a dependency tree from which that vulnerability originated.
+By constructing a complete, concise, and verifiable [artifact tree](/glossary/artifact_tree) for every [software artifact](/glossary/artifact), [GitBOM](/glossary/gitbom) enables:
+- Run-time detection of potential vulnerabilities, regardless of the depth in a dependency tree from which that vulnerability originated
+- Post-exploit forensics
+
+By creating a unique, immutable, verifiable identifier (the [GitBOM ID](/glossary/gitbom/#gitbom-identifier)) for every [software artifact](/glossary/artifact), [GitBOM](/glossary/gitbom):
+- enables any metadata ([SBOM](/glossary/sbom), license, support info, security advisories, etc.) to be linked to a specific set of corresponding [software artifacts](/glossary/artifact)
+- provides a precise [artifact identifier](/glossary/artifact/#artifact-identifiers) which can be used in SBOMs in situations where [naming schemes](/glossary/gitbom/#gitbom-complements-sbom) may be ambiguous
 
 In short, it would let anyone easily answer the question, "Does this product contain log4j?"
 {{< /home/section >}}
