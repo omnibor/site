@@ -1,4 +1,4 @@
-baseURL = 'http://gitbom.dev/'
+baseURL = 'https://gitbom.dev/'
 languageCode = 'en-us'
 title = 'GitBOM'
 googleAnalytics = 'G-J0V6E5PVJD'
