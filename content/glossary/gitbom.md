@@ -102,5 +102,7 @@ Examples:
 **Container Images**
 : Embed GitBOM identifier into the image manifest as an annotation named “dot.bom”
 
-## GitBOM Complements SBOM
+## GitBOM Compliments SBOM
 GitBOM can help [SBOMs](/glossary/sbom) be more precise and reliable.
+
+See [SBOM: Gitbom Compliments SBOMs](/glossary/sbom/#gitbom-compliments-sbom) for further details.

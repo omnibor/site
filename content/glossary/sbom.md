@@ -65,8 +65,23 @@ Examples include but are not limited to:
 - license
 - copyright
 
-## GitBOM Complements SBOM
+## GitBOM Compliments SBOM
+[GitBOM](/glossary/gitbom/) can help [SBOMs](/glossary/sbom) be more precise and reliable.
 
-Most SBOMs allow for 'external identifiers' and can thus use git refs to reference the artifacts in the GitBOM [artifact trees](/glossary/artifact_tree).
+Most [SBOMs](/glossary/sbom) allow for 'external identifiers' and can thus use [git refs](/glossary/git/#git-ref) to reference the artifacts in the GitBOM [artifact trees](/glossary/artifact_tree). This allows an [SBOM](/glossary/sbom) describing a specific component, e.g. `Component Name: Django` and `Component Version: 1.11.1`, to reference a list of applicable [GitBOM IDs](/glossary/gitbom/#gitbom-identifier).
 
-GitBOM can help [SBOMs](/glossary/sbom) be more precise and reliable.
+This is helpful because today two different tools might produce two different SBOMs for the same software [artifact](/glossary/artifact/). This could occur if the SBOM generation tools use different sources to identify and describe the component. GitBOM provides a precise software [artifact identifier](/glossary/artifact/#artifact-identifiers) which can be used in SBOMs in situations where naming schemes may be ambiguous.
+
+**Example 1**: If one SBOM generation tool uses [CPEs](https://nvd.nist.gov/products/cpe):
+```
+cpe:2.3:a:djangoproject:django:1.11.1:*:*:*:*:*:*:*
+```
+and the other uses [PURL](https://github.com/package-url/purl-spec):
+ ```
+ pkg:pypi/django@1.11.1
+ ```
+ ...then these two SBOMs might diverge when they define the component supplier: it could be `Component Supplier: djangoproject` or `Component Supplier: pypi`.
+
+ **Example 2:** In another instance a vendor might choose to use their product's current marketing name for the component name in their SBOM generation tools, whereas third-party SBOM generation tools might use the vendor's product name as listed in a [CPE](https://nvd.nist.gov/products/cpe) or [SWID tag](https://nvd.nist.gov/products/swid).
+
+ By enabling both SBOM generation tools to list the GitBOM ID(s) for specifically applicable artifact tree(s) associated with the component, an SBOM consumer can quickly understand that both SBOMs do describe the same artifact, regardless of ambiguities in naming schemes.
