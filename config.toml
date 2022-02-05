@@ -73,7 +73,7 @@ sizes = [300, 400, 600, 700]
 type = "monospace"
 
 [params.social]
-    github = "https://github.com/gitbom/"
+    github = "https://github.com/git-bom/"
     twitter = "https://twitter.com/gitbom"
 
 [params.logos]
