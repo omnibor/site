@@ -1,7 +1,7 @@
 baseURL = 'https://gitbom.dev/'
 languageCode = 'en-us'
 title = 'GitBOM'
-googleAnalytics = 'G-J0V6E5PVJD'
+googleAnalytics = 'G-WPW8SHFX7L'
 
 [module]
   [[module.imports]]
