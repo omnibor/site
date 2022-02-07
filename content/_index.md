@@ -1,5 +1,5 @@
 ---
-title: Home
+title: GitBOM
 ---
 {{< home/section title="What?" iconclass="fas fa-2x fa-power-off">}}
 

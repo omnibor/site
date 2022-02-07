@@ -13,29 +13,10 @@
 {{ end }}
 
 <!-- OpenGraph metadata-->
-<meta property="og:title" content="{{ $title }}">
-{{ if $isDoc }}
-<meta property="og:type" content="documentation">
-{{ end }}
-<meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:locale" content="en_US">
-{{ if not $isHome }}
-<meta property="og:site_name" content="{{ $title }}">
-{{ end }}
-{{ with $description }}
-<meta property="og:description" content="{{ . }}">
-{{ end }}
-<meta name="og:type" content="{{ $pageType }}">
-<meta name="og:image" content="{{ $imageUrl }}">
-<meta name="og:image:alt" content="{{ $title }} project logo">
-<meta name="og:image:type" content="image/png">
-
+{{ template "_internal/opengraph.html" . }}
 
 <!-- Twitter Card metadata -->
-<meta name="twitter:card" content="Automatic and Verifiable Artifact Resolution">
-<meta name-="twitter:image" content="/img/logos/gitbom-logo-stacked.svg">
-<meta name="twitter:site" content="@{{ $twitterHandle }}">
-<meta name="twitter:creator" content="@{{ $twitterHandle }}">
+{{ template "_internal/twitter_cards.html" . }}
 
 <link rel="canonical" href="{{ .Permalink }}">
 

@@ -60,6 +60,8 @@ googleAnalytics = 'G-WPW8SHFX7L'
     startLevel = 1
 
 [params]
+description = 'Automatic and Verifiable Artifact Resolution'
+images = [ '/img/logos/gitbom-logo-stacked.png' ]
 subtitle = 'Automatic and Verifiable Artifact Resolution'
 fontawesomeversion = "5.8.1"
 [[params.fonts]]
