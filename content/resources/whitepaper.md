@@ -129,9 +129,9 @@ This implies that a deterministic hashing function may be used to derive artifac
 
 #### 3. Immutability
 
-*An identified artifact can not be modified without also changing its identity. Non-equivalent artifacts have distinct identities.*
+*An identified artifact cannot be modified without also changing its identity. Non-equivalent artifacts have distinct identities.*
 
-"An identified artifact" means an artifact whose identity has been determined. "Can not be modified without also changing its identity" means that the deterministic hashing function has no collissions, and therefore any change to the artifact results in a change to its identity. In this way, the relationship between artifact and identity is immutable.
+"An identified artifact" means an artifact whose identity has been determined. "Can not be modified without also changing its identity" means that the deterministic hashing function has no collisions, and therefore any change to the artifact results in a change to its identity. In this way, the relationship between artifact and identity is immutable.
 
 #### 4. Uniqueness
 
