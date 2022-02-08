@@ -97,7 +97,7 @@ Following from (2), this on-disk format provides an efficient and already well-u
 GitBOM is an approach which has the following properties:
 1. re-uses a well understood paradigm for modelling artifact relationships efficiently in flat files on disk in a machine-readable format
 2. optimally efficient approach for run-time comparison of any given binary object against a dataset of signatures of known-vulnerable inputs 
-3. does not require project maintainers to make any changes to their workflow in order to comply with the Biden EO
+3. does not require project maintainers to make any changes to their workflow in order to comply with the [Biden Executive Order](https://www.whitehouse.gov/briefing-room/presidential-actions/2021/05/12/executive-order-on-improving-the-nations-cybersecurity/)
 4. has a bounded scope of work to achieve near-complete coverage of the F/OSS landscape
 5. could be integrated with both free and commercial services
 
