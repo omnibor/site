@@ -16,7 +16,7 @@ title: GitBOM
 {{% notification type="info" %}}
 **[GitBOM](/glossary/gitbom) is NOT** (contrary to the name's appearance):
 - [Git](/glossary/git)
-- An [SBOM](/resources/glossary/sbom), nor a replacement for SBOMs
+- An [SBOM](/glossary/sbom), nor a replacement for SBOMs
 - A version control system
 - A signing scheme
 
