@@ -49,10 +49,17 @@ We don't think this will be a problem because GitBOM does not include any metada
 
 While duplicate hashes of empty files and regularly copied files (such as LICENSE files) are guaranteed to occur, this does not affect the security properties of GitBOM.
 
-## Why not use [Software Heritage Foundation](https://www.softwareheritage.org/) identifiers?
+## How do [Software Heritage Foundation](https://www.softwareheritage.org/) identifiers relate to GitBOM Identifiers?
 
-[Software Heritage Foundation Identifiers](https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html#persistent-identifiers) uses [git object ids](https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html#git-compatibility):
+[Software Heritage Foundation Identifiers](https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html#persistent-identifiers) use [git object ids](https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html#git-compatibility) as part of their [core identifiers](https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html#core-identifiers):
 
 > SWHIDs for contents, directories, revisions, and releases are, at present, compatible with the Git way of computing identifiers for its objects. The <object_id> part of a SWHID for a content object is the Git blob identifier of any file with the same content; for a revision it is the Git commit identifier for the same revision, etc.
 
-GitBOM uses git object ids for [artifact ids](/glossary/artifact/#artifact-identifers).
+GitBOM uses git object ids as the entire [artifact id](/glossary/artifact/#artifact-identifers).
+
+Whereas SWHIDs' core identifier includes additional metadata (see [SWHID Syntax](https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html#syntax)):
+```<identifier_core> ::= "swh" ":" <scheme_version> ":" <object_type> ":" <object_id> ;``` 
+...the git object id is the object's identifier in a [GitBOM document](https://gitbom.dev/glossary/gitbom/#gitbom-document):
+```<gitbom_identifier> ::= <git object id>```
+The scheme in which SWHIDs are used is also different from the scheme in which GitBOM identifiers are used in a [GitBOM document](https://gitbom.dev/glossary/gitbom/#gitbom-document). 
+
