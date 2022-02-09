@@ -16,8 +16,6 @@ We expect all members of the community to abide by the [Code of Conduct](../code
 
 ## Communication Channels
 
-We have a public [Calendar of Community Meetings](https://calendar.google.com/calendar/u/3?cid=cnFtdGtkMHVjZWtuOW9iYWdtbzl2NGI2czRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ).
-
 Mailing lists:
 * General Development Discussion List: [gitbom-dev on groups.google.com](https://groups.google.com/u/1/g/gitbom-dev)
 * Language-specific Discussion List: [gitbom-lang on groups.google.com](https://groups.google.com/u/1/g/gitbom-lang)
@@ -29,3 +27,7 @@ Chat channels:
 
 Social media:
 * Keep up to date on announcements via our [![Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/gitbom) feed.
+
+## Community Meetings
+
+{{% calendar id="rqmtkd0ucekn9obagmo9v4b6s4" %}}
