@@ -1,0 +1,13 @@
+{{ with .Get "id" }}
+[iCal Subscription Link](https://calendar.google.com/calendar/ical/rqmtkd0ucekn9obagmo9v4b6s4%40group.calendar.google.com/public/basic.ics)
+
+<div class="responsive-iframe-container big-container">
+    <iframe src="https://calendar.google.com/calendar/embed?&height=700&wkst=1&src={{.}}%40group.calendar.google.com&color=%23fbdbac&ctz=America%2FLos_Angeles" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+</div>
+<div class="responsive-iframe-container small-container">
+    <iframe src="https://calendar.google.com/calendar/embed?&mode=AGENDA&height=800&wkst=1&src={{.}}%40group.calendar.google.com&color=%23B1440E&ctz=America%2FLos_Angeles" style="border-width:0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+</div>
+
+{{ else }}
+{{ errorf "missing value for param 'id': %s" .Position }}
+{{ end }}
