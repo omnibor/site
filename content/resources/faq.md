@@ -60,6 +60,7 @@ GitBOM uses git object ids as the entire [artifact id](/glossary/artifact/#artif
 Whereas SWHIDs' core identifier includes additional metadata (see [SWHID Syntax](https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html#syntax)):
 ```<identifier_core> ::= "swh" ":" <scheme_version> ":" <object_type> ":" <object_id> ;``` 
 ...the git object id is the object's identifier in a [GitBOM document](https://gitbom.dev/glossary/gitbom/#gitbom-document):
-```<gitbom_identifier> ::= <git object id>```
+```<gitbom_identifier> ::= <git object id>```.
+
 The scheme in which SWHIDs are used is also different from the scheme in which GitBOM identifiers are used in a [GitBOM document](https://gitbom.dev/glossary/gitbom/#gitbom-document). 
 
