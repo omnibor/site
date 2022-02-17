@@ -30,4 +30,6 @@ Social media:
 
 ## Community Meetings
 
+[Community Meeting Recordings](https://youtube.com/playlist?list=PL8Qx0AngZdU2ALwACVLQdGHHTdbTx-0x-)
+
 {{% calendar id="rqmtkd0ucekn9obagmo9v4b6s4" %}}
