@@ -7,6 +7,14 @@ toc=true
 
 A build tool is something which reads one or more input [artifacts](/glossary/artifact) and writes one or more output [artifacts](/glossary/artifact).
 
+```mermaid
+flowchart LR 
+    input1 --> buildtool[build tool] --> output
+    input2 --> buildtool[build tool]
+    input3 --> buildtool[build tool]
+```
+
+
 Examples:
 * C compiler consumes one .c file and zero or more .h files to prodce a .o file
 ```mermaid
@@ -54,3 +62,14 @@ flowchart LR
 ```
 
 The totality of ancestors for a given artifact may be represented as an [artifact tree](/glossary/artifact_tree).
+
+## Code Generators
+
+It is a not infrequent occurence to have build tools which generate source code from an input.
+
+```mermaid
+flowchart LR
+    codegeninput[codegen input] --> codegenerator[[code generator]] --> generatedsrc[generated source code file]
+```
+
+The source code files output by a code generator are themselves [derived artifacts](http://localhost:1313/glossary/artifact/#derived-artifacts) and as such are no longer [leaf artifacts](http://localhost:1313/glossary/artifact/#leaf-artifacts) in the artifact tree
