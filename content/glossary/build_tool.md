@@ -65,11 +65,14 @@ The totality of ancestors for a given artifact may be represented as an [artifac
 
 ## Code Generators
 
-It is a not infrequent occurence to have build tools which generate source code from an input.
+Typically, source code files are hand written by humans, and as such are [leaf artifacts](http://localhost:1313/glossary/artifact/#leaf-artifacts) in the [artifact tree](/glossary/artifact_tree).
+
+Sometimes source code files are themselves **generated** by a code generator from inputs.
 
 ```mermaid
 flowchart LR
     codegeninput[codegen input] --> codegenerator[[code generator]] --> generatedsrc[generated source code file]
 ```
 
-The source code files output by a code generator are themselves [derived artifacts](http://localhost:1313/glossary/artifact/#derived-artifacts) and as such are no longer [leaf artifacts](http://localhost:1313/glossary/artifact/#leaf-artifacts) in the artifact tree
+A code generator is a [build tool](#build-tools).  The output from a [build tool](#build-tools) is a [derived artifact](http://localhost:1313/glossary/artifact/#derived-artifacts).  Therefore generated soure code is a [derived artifact](http://localhost:1313/glossary/artifact/#derived-artifacts).
+
