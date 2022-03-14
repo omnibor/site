@@ -65,14 +65,18 @@ The totality of ancestors for a given artifact may be represented as an [artifac
 
 ## Code Generators
 
-Typically, source code files are hand written by humans, and as such are [leaf artifacts](http://localhost:1313/glossary/artifact/#leaf-artifacts) in the [artifact tree](/glossary/artifact_tree).
+Typically, source code files are hand written by humans, and as such are [leaf artifacts](/glossary/artifact/#leaf-artifacts) in the [artifact tree](/glossary/artifact_tree).
 
-Sometimes source code files are themselves **generated** by a code generator from inputs.
+Source code files can also be **generated** from other inputs by a code generator.
 
 ```mermaid
 flowchart LR
-    codegeninput[codegen input] --> codegenerator[[code generator]] --> generatedsrc[generated source code file]
+    input[input] --> codegenerator[[code generator]] --> generatedsrc[generated source code file]
 ```
 
-A code generator is a [build tool](#build-tools).  The output from a [build tool](#build-tools) is a [derived artifact](http://localhost:1313/glossary/artifact/#derived-artifacts).  Therefore generated soure code is a [derived artifact](http://localhost:1313/glossary/artifact/#derived-artifacts).
+In this scenario, the generated source code file is a [derived artifact](/glossary/artifact/#derived-artifacts). This is because the [code generator](build_tool/#code-generators) is a [build tool](#build-tools) and, by definition, the output from the [build tool](#build-tools) is a [derived artifact](/glossary/artifact/#derived-artifacts).
+
+Code generation is very common in many languages.  See [go generate](https://eli.thegreenplace.net/2021/a-comprehensive-guide-to-go-generate/), [Java Xtend](https://www.eclipse.org/xtend/), and [qtcpp](https://qface.readthedocs.io/en/latest/qtcpp.html).
+
+
 
