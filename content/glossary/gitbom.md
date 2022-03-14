@@ -102,6 +102,9 @@ Examples:
 **Container Images**
 : Embed GitBOM identifier into the image manifest as an annotation named “dot.bom”
 
+**Generated Source Code**
+: Embed GitBOM identifier for a generated source code file using a comment
+
 ## GitBOM Compliments SBOM
 GitBOM can help [SBOMs](/glossary/sbom) be more precise and reliable.
 

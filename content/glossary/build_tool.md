@@ -7,6 +7,14 @@ toc=true
 
 A build tool is something which reads one or more input [artifacts](/glossary/artifact) and writes one or more output [artifacts](/glossary/artifact).
 
+```mermaid
+flowchart LR 
+    input1 --> buildtool[build tool] --> output
+    input2 --> buildtool[build tool]
+    input3 --> buildtool[build tool]
+```
+
+
 Examples:
 * C compiler consumes one .c file and zero or more .h files to prodce a .o file
 ```mermaid
@@ -54,3 +62,21 @@ flowchart LR
 ```
 
 The totality of ancestors for a given artifact may be represented as an [artifact tree](/glossary/artifact_tree).
+
+## Code Generators
+
+Typically, source code files are hand written by humans, and as such are [leaf artifacts](/glossary/artifact/#leaf-artifacts) in the [artifact tree](/glossary/artifact_tree).
+
+Source code files can also be **generated** from other inputs by a code generator.
+
+```mermaid
+flowchart LR
+    input[input] --> codegenerator[[code generator]] --> generatedsrc[generated source code file]
+```
+
+In this scenario, the generated source code file is a [derived artifact](/glossary/artifact/#derived-artifacts). This is because the [code generator](build_tool/#code-generators) is a [build tool](#build-tools) and, by definition, the output from the [build tool](#build-tools) is a [derived artifact](/glossary/artifact/#derived-artifacts).
+
+Code generation is very common in many languages.  See [go generate](https://eli.thegreenplace.net/2021/a-comprehensive-guide-to-go-generate/), [Java Xtend](https://www.eclipse.org/xtend/), and [qtcpp](https://qface.readthedocs.io/en/latest/qtcpp.html).
+
+
+
