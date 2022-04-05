@@ -71,7 +71,7 @@ blob⎵${git ref of Artifact-7}\n
 Artifact-1's GitBOM:
 ```
 blob⎵${git ref of Artifact-2}⎵bom⎵${git ref of Artifact-2's GitBOM}\n
-blob⎵${git ref of Artifact-3}⎵bom⎵${git ref of Artifact-2's GitBOM}\n
+blob⎵${git ref of Artifact-3}⎵bom⎵${git ref of Artifact-3's GitBOM}\n
 ```
 
 ## GitBOM Identifier
