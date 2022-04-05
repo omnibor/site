@@ -16,7 +16,7 @@ flowchart LR
 
 
 Examples:
-* C compiler consumes one .c file and zero or more .h files to prodce a .o file
+* C compiler consumes one .c file and zero or more .h files to produce a .o file
 ```mermaid
 flowchart LR
     .c --> compiler[[compiler]]
