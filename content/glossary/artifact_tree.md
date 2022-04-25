@@ -83,11 +83,11 @@ flowchart BT
     py3[.py] --> pyc3[.pyc]
     py4[.py] --> pyc4[.pyc]
     py5[.py] --> pyc5[.pyc]
-    pyc1 --> running[running executable]
-    pyc2 --> running[running executable]
-    pyc3 --> running[running executable]
-    pyc4 --> running[running executable]
-    pyc5 --> running[running executable]
+    pyc1 --> running[running exectuable]
+    pyc2 --> running[running exectuable]
+    pyc3 --> running[running exectuable]
+    pyc4 --> running[running exectuable]
+    pyc5 --> running[running exectuable]
 ```
 
 ## Artifact tree singularity

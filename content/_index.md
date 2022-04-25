@@ -53,8 +53,8 @@ In short, it would let anyone easily answer the question, "Does this product con
 Drawing on the version control system [git](/glossary/git/), [GitBOM](glossary/gitbom/) observes that:
 
 1. Every artifact is a [blob](/glossary/git/#git-blob)
-2. Every [blob](/glossary/git/#git-blob) can be referenced by its [gitref](/glossary/git/#git-ref)
-3. The [gitref](glossary/git/#git-ref) may be used as an [artifact ID](/glossary/artifact/#artifact-identifiers) for [leaf artifacts](/glossary/artifact/#leaf-artifacts) (In fact, today most source code artifacts are already stored with their git commit as their ID)
+2. Every [blob](/glossary/git/#git-blob) can be referenced by its [gitoid](/glossary/git/#git-object-id-gitoid)
+3. The [gitoid](/glossary/git/#git-object-id-gitoid) may be used as an [artifact ID](/glossary/artifact/#artifact-identifiers) for [leaf artifacts](/glossary/artifact/#leaf-artifacts) (In fact, today most source code artifacts are already stored with their git commit as their ID)
 4. [Artifact IDs](/glossary/artifact/#artifact-identifiers) can be extended to [derived artifacts](glossary/artifact/#derived-artifacts) by producing [GitBOM Documents](/glossary/gitbom/#gitbom-document)
 5. [Build tools](/glossary/#build-tool) can embed [GitBOM Document Identifiers](/glossary/gitbom/#gitbom-identifier) into the [derived artifacts](glossary/artifact/#derived-artifacts) they produce
 

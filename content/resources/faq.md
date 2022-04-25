@@ -11,9 +11,9 @@ To propose a new question, please open [an issue](https://github.com/git-bom/sit
 
 To propose a question-answer pair, please open [a pull request](https://github.com/git-bom/site/pulls) updating this file.
 
-## Gitref's are based on sha1, isn't sha1 broken?
+## Gitoids's are based on sha1, isn't sha1 broken?
 
-Git itself still uses sha1, and we'd like to be compatible with git and tools that already use gitrefs. We plan to update to another hashing algorithm if/when git updates.
+Git itself still uses sha1, and we'd like to be compatible with git and tools that already use gitoids. We plan to update to another hashing algorithm if/when git updates.
 
 [shattered.io](https://shattered.io/) has found an impressive attack on SHA-1 in PDF files. There are [misconceptions about what that means](https://manishearth.github.io/blog/2017/02/26/clarifying-misconceptions-about-shattered/).
 GitHub has published some analysis of its [implications for git](https://github.blog/2017-03-20-sha-1-collision-detection-on-github-com/).
@@ -37,7 +37,7 @@ GitBOM seeks to have the following characteristics:
 
 The uniqueness requirement is what drives the exclusion of metadata from GitBOM.
 
-Metadata, stored outside of the GitBOM [artifact tree](/glossary/artifact_tree), may reference any [artifact](/glossary/artifact) within the tree by a unique id -- its [gitref](/glossary/git/#git-ref). Similarly, the tree itself can be referenced by its [gitref](/glossary/git/#git-ref).
+Metadata, stored outside of the GitBOM [artifact tree](/glossary/artifact_tree), may reference any [artifact](/glossary/artifact) within the tree by a unique id -- its [gitoid](/glossary/git/#git-object-id-gitoid). Similarly, the tree itself can be referenced by its [gitoid](/glossary/git/#git-object-id-gitoid).
 
 ## Will the generation of artifact trees slow down build processes? Will the tree be very large?
 

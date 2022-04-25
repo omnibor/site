@@ -228,24 +228,24 @@ Let us look briefly at these three adoption requirements in more detail to under
 
 Imagine we have the following two files:
 
-`hello.c` has gitref `c64efd8bd8bceca8c69f9b5b7647cf0ff61fed59` and includes `stdio.h`
+`hello.c` has gitoid `c64efd8bd8bceca8c69f9b5b7647cf0ff61fed59` and includes `stdio.h`
 
-`stdio.h` has gitref `c0f35b8ae567f5348df3711496fdc0ef6f634169`
+`stdio.h` has gitoid `c0f35b8ae567f5348df3711496fdc0ef6f634169`
 
-From these two inputs, we compile `hello.o`. The resulting GitBOM is a document (text file) containing the lexically ordered sequence of the gitrefs of each input artifact related to this build step:
+From these two inputs, we compile `hello.o`. The resulting GitBOM is a document (text file) containing the lexically ordered sequence of the gitoids of each input artifact related to this build step:
 
 ```
 blob⎵c0f35b8ae567f5348df3711496fdc0ef6f634169\n 
 blob⎵c64efd8bd8bceca8c69f9b5b7647cf0ff61fed59\n
 ```
 
-The gitref of the resulting document is `85322091b1d50a23d1c2a0f5933788a2a958f2ad`, and this document is written out to disk in a directory in the build environment, e.g.:
+The gitoid of the resulting document is `85322091b1d50a23d1c2a0f5933788a2a958f2ad`, and this document is written out to disk in a directory in the build environment, e.g.:
 
 ```
 ./.bom/object/85/322091b1d50a23d1c2a0f5933788a2a958f2ad
 ```
 
-The compiler would also embed this gitref in a new elf section of the resulting `hello.o` binary; this adds a total of 89 bytes when accounting for elf section formatting.
+The compiler would also embed this gitoid in a new elf section of the resulting `hello.o` binary; this adds a total of 89 bytes when accounting for elf section formatting.
 
 ### Example: OCI v2 / ORAS
 
@@ -266,7 +266,7 @@ Combining these together, we produce the following GitBOM document:
 blob_000TODO
 blob_000TODO
 ```
-... and embed the gitref of this gitbom in the image manifest's `annotations` field, like so:
+... and embed the gitoid of this gitbom in the image manifest's `annotations` field, like so:
 
 ```
 {
