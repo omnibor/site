@@ -15,16 +15,16 @@ flowchart BT
     Artifact-7[Artifact-7 ID] --> Artifact-3[Artifact-3 ID]
 ```
 
-GitBOM advocates for using the [Git Ref](/glossary/git/#git-ref) of an artifact as its [artifact id](/glossary/artifact#artifact-identifiers):
+GitBOM advocates for using the [gitoid](/glossary/git/#git-object-id-gitoid) of an artifact as its [artifact id](/glossary/artifact#artifact-identifiers):
 
 ```mermaid
 flowchart BT
-    Artifact-2[Artifact-2 Git Ref] --> Artifact-1[Artifact-1 Git Ref]
-    Artifact-3[Artifact-3 Git Ref] --> Artifact-1[Artifact-1 Git Ref]
-    Artifact-4[Artifact-4 Git Ref] --> Artifact-2[Artifact-2 Git Ref]
-    Artifact-5[Artifact-5 Git Ref] --> Artifact-2[Artifact-2 Git Ref]
-    Artifact-6[Artifact-6 Git Ref] --> Artifact-3[Artifact-3 Git Ref]
-    Artifact-7[Artifact-7 Git Ref] --> Artifact-3[Artifact-3 Git Ref]
+    Artifact-2[Artifact-2 gitoid] --> Artifact-1[Artifact-1 gitoid]
+    Artifact-3[Artifact-3 gitoid] --> Artifact-1[Artifact-1 gitoid]
+    Artifact-4[Artifact-4 gitoid] --> Artifact-2[Artifact-2 gitoid]
+    Artifact-5[Artifact-5 gitoid] --> Artifact-2[Artifact-2 gitoid]
+    Artifact-6[Artifact-6 gitoid] --> Artifact-3[Artifact-3 gitoid]
+    Artifact-7[Artifact-7 gitoid] --> Artifact-3[Artifact-3 gitoid]
 ```
 
 ## GitBOM Document
@@ -35,48 +35,48 @@ Each artifact has a GitBOM document that describes its immediate children consit
 A child artifact which is itself a [leaf artifacts](/glossary/artifact/#leaf-artifacts) would be represented by
 
 ```
-blob⎵${git ref of child}\n
+blob⎵${gitoid of child}\n
 ```
 
 A child artifact which is itself a [derived artifact](/glossary/artifact/#derived-artifacts) would be represented by
 ```
-blob⎵${git ref of child}⎵bom⎵${gitref of child's GitBOM document}\n
+blob⎵${gitoid of child}⎵bom⎵${gitoid of child's GitBOM document}\n
 ```
 
 Example:
 
 ```mermaid
 flowchart BT
-    Artifact-2[Artifact-2 Git Ref] --> Artifact-1[Artifact-1 Git Ref]
-    Artifact-3[Artifact-3 Git Ref] --> Artifact-1[Artifact-1 Git Ref]
-    Artifact-4[Artifact-4 Git Ref] --> Artifact-2[Artifact-2 Git Ref]
-    Artifact-5[Artifact-5 Git Ref] --> Artifact-2[Artifact-2 Git Ref]
-    Artifact-6[Artifact-6 Git Ref] --> Artifact-3[Artifact-3 Git Ref]
-    Artifact-7[Artifact-7 Git Ref] --> Artifact-3[Artifact-3 Git Ref]
+    Artifact-2[Artifact-2 gitoid] --> Artifact-1[Artifact-1 gitoid]
+    Artifact-3[Artifact-3 gitoid] --> Artifact-1[Artifact-1 gitoid]
+    Artifact-4[Artifact-4 gitoid] --> Artifact-2[Artifact-2 gitoid]
+    Artifact-5[Artifact-5 gitoid] --> Artifact-2[Artifact-2 gitoid]
+    Artifact-6[Artifact-6 gitoid] --> Artifact-3[Artifact-3 gitoid]
+    Artifact-7[Artifact-7 gitoid] --> Artifact-3[Artifact-3 gitoid]
 ```
 
 Artifact-2's GitBOM:
 
 ```
-blob⎵${git ref of Artifact-4}\n
-blob⎵${git ref of Artifact-5}\n
+blob⎵${gitoid of Artifact-4}\n
+blob⎵${gitoid of Artifact-5}\n
 ```
 
 Artifact-3's GitBOM:
 ```
-blob⎵${git ref of Artifact-6}\n
-blob⎵${git ref of Artifact-7}\n
+blob⎵${gitoid of Artifact-6}\n
+blob⎵${gitoid of Artifact-7}\n
 ```
 
 Artifact-1's GitBOM:
 ```
-blob⎵${git ref of Artifact-2}⎵bom⎵${git ref of Artifact-2's GitBOM}\n
-blob⎵${git ref of Artifact-3}⎵bom⎵${git ref of Artifact-3's GitBOM}\n
+blob⎵${gitoid of Artifact-2}⎵bom⎵${gitoid of Artifact-2's GitBOM}\n
+blob⎵${gitoid of Artifact-3}⎵bom⎵${gitoid of Artifact-2's GitBOM}\n
 ```
 
 ## GitBOM Identifier
 
-For a given artifact, the GitBOM ID of that artifact is simply the git ref of its corresponding GitBOM Document.
+For a given artifact, the GitBOM ID of that artifact is simply the gitoid of its corresponding GitBOM Document.
 
 ## GitBOM Identifier Embedding
 

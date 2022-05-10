@@ -33,15 +33,15 @@ A git [blob](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects) (binary l
   - Does not include *any* metadata
   - Just the contents
   - **Any file anywhere with the same contents will have the same ‘blob’ object**
-  - **Any file anywhere with the same contents will have the same git ref**
+  - **Any file anywhere with the same contents will have the same gitoid**
 
 
-# Git Ref
+# Git Object Id (gitoid)
 
 Git Blobs are identified by the sha1 of the blob object:
- ![gitref](/img/gitref.svg)
+ ![gitoid](/img/gitoid.svg)
 
-There is some nacent movement in git to [SHA-256](https://git-scm.com/docs/hash-function-transition/) for gitrefs.
-As the purpose of GitBOM using gitrefs for [artifact ids](/glossary/artifact#artifact-identifiers) is to match the indexing
+There is some nacent movement in git to [SHA-256](https://git-scm.com/docs/hash-function-transition/) for gitoids.
+As the purpose of GitBOM using gitoids for [artifact ids](/glossary/artifact#artifact-identifiers) is to match the indexing
 of the [leaf artifacts](/glossary/artifact/#leaf-artifacts) (aka source files), it is anticipated that GitBOM will follow
 git's transition to SHA-256 at the rate it is adopted.

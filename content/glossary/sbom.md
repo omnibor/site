@@ -68,7 +68,7 @@ Examples include but are not limited to:
 ## GitBOM Compliments SBOM
 [GitBOM](/glossary/gitbom/) can help [SBOMs](/glossary/sbom) be more precise and reliable.
 
-Most [SBOMs](/glossary/sbom) allow for 'external identifiers' and can thus use [git refs](/glossary/git/#git-ref) to reference the artifacts in the GitBOM [artifact trees](/glossary/artifact_tree). This allows an [SBOM](/glossary/sbom) describing a specific component, e.g. `Component Name: Django` and `Component Version: 1.11.1`, to reference a list of applicable [GitBOM IDs](/glossary/gitbom/#gitbom-identifier).
+Most [SBOMs](/glossary/sbom) allow for 'external identifiers' and can thus use [gitoid](/glossary/git/#git-object-id-gitoid) to reference the artifacts in the GitBOM [artifact trees](/glossary/artifact_tree). This allows an [SBOM](/glossary/sbom) describing a specific component, e.g. `Component Name: Django` and `Component Version: 1.11.1`, to reference a list of applicable [GitBOM IDs](/glossary/gitbom/#gitbom-identifier).
 
 This is helpful because today two different tools might produce two different SBOMs for the same software [artifact](/glossary/artifact/). This could occur if the SBOM generation tools use different sources to identify and describe the component. GitBOM provides a precise software [artifact identifier](/glossary/artifact/#artifact-identifiers) which can be used in SBOMs in situations where naming schemes may be ambiguous.
 

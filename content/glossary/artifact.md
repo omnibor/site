@@ -58,9 +58,9 @@ Artifact IDs should have the following characteristics:
 : *An identified artifact can not be modified without also changing its identity.*
 {{% /notification %}}
 
-GitBOM advocates for using the [Git Ref](/glossary/git/#git-ref) of an artifact as its artifact ID.
+GitBOM advocates for using the [gitoid](/glossary/git/#git-object-id-gitoid) of an artifact as its artifact ID.
 
-Source code [leaf artifacts](#leaf-artifacts) are typically already being stored in [git](/glossary/git) where they are identified via their gitref.
+Source code [leaf artifacts](#leaf-artifacts) are typically already being stored in [git](/glossary/git) where they are identified via their [gitoid](/glossary/git/#git-object-id-gitoid).
 
 ## Recommended Additional Reading
 - Learn more about how each artifact has an [artifact tree](/glossary/artifact_tree)
