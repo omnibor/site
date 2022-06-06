@@ -17,9 +17,9 @@ Last updated: 2022-01-25
 
 ## Summary
 
-GitBOM is an application of the [git](https://en.wikipedia.org/wiki/Git) [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph), a widely used merkle tree with a flat-file storage format, to the challenge of creating build artifact trees in today's language-heterogeneous open source environments. Contrary to the name's appearance, GitBOM is neither dependent on `git` nor is it a Software Bill Of Materials (SBOM).
+GitBOM is an application of the [git](https://en.wikipedia.org/wiki/Git) [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph), a widely used merkle tree with a flat-file storage format, to the challenge of creating build artifact dependency graphs in today's language-heterogeneous open source environments. Contrary to the name's appearance, GitBOM is neither dependent on `git` nor is it a Software Bill Of Materials (SBOM).
 
-By generating artifact trees at build time, embedding the hash of the tree in produced artifacts, and referencing that hash in each subsequent build step, GitBOM will enable the creation of verifiable and complete artifact trees while requiring no effort from, or changes in, most open source projects. Furthermore, it will enable efficient correlation of vulnerability databases against a concise representation of the artifact tree within run-time environments, if vulnerability databases can be correlated to source files or intermediary packages or libraries. These benefits would also accrue to closed-source projects that use the same build tools, and provide insights which span both open and closed source components in a consistent manner.
+By generating artifact dependency graphs at build time, embedding the hash of the graph in produced artifacts, and referencing that hash in each subsequent build step, GitBOM will enable the creation of verifiable and complete artifact dependency graphs while requiring no effort from, or changes in, most open source projects. Furthermore, it will enable efficient correlation of vulnerability databases against a concise representation of the artifact dependency graph within run-time environments, if vulnerability databases can be correlated to source files or intermediary packages or libraries. These benefits would also accrue to closed-source projects that use the same build tools, and provide insights which span both open and closed source components in a consistent manner.
 
 ### Objective
 
@@ -32,11 +32,11 @@ It is desirable to enable efficient launch-time comparison of the verifiable and
 
 ### Proposal
 
-In an ideal scenario, an open source consumer would have available to them a complete artifact tree, tracing dependencies to their ultimate depth. Even if we do not achieve this ideal, we should seek a solution with the lowest cost of adoption so as to enable the greatest buy-in across all open source ecosystems and communities.
+In an ideal scenario, an open source consumer would have available to them a complete artifact dependency graph, tracing dependencies to their ultimate depth. Even if we do not achieve this ideal, we should seek a solution with the lowest cost of adoption so as to enable the greatest buy-in across all open source ecosystems and communities.
 
 For this reason we propose two areas of work:
 1. enhancing artifact-generating tools (e.g., compilers, linkers, and container image generators) to also output metadata regarding their inputs and outputs
-2. defining a storage format which represents the minimum information to describe the artifact relationship tree, and which uses git's on-disk storage format
+2. defining a storage format which represents the minimum information to describe the artifact dependency graph, and which uses git's on-disk storage format
 
 Following from (1), this approach will require minimal to no effort on the part of open source project maintainers, thus significantly increasing its chances of widespread adoption as compared to any approach which requires maintainers to perform additional actions (e.g., implementing substantive changes in their CI/CD or package build pipeline to generate an SBOM).
 
@@ -45,32 +45,32 @@ Following from (2), this on-disk format provides an efficient and already well-u
 
 ### ASCII-Art Flow Chart
 ```
- ┌─────────────────────────────┐
- │ Build Time: Tree Generation │
- │                             │
- │ ┌────────┐   ┌────────┐     │
- │ │ Src  A │   │ Src  B │     │
- │ └───┬────┘   └──┬─────┘     │
- │     │           │           │
- │     ▼           │           │
- │  ┌───────┐      │           │
- │  │ Obj A │      │           │
- │  └─────┬─┘      │           │
- │        │        │           │
- │        ▼        ▼           │
- │        ┌─────────────┐      │
- │        │ Compilation │      │
- │        │  & Signing  │      │
- │        └─────┬───────┘      │
- │              │              │
- └──────────────┼──────────────┘
+ ┌─────────────────────────────-┐
+ │ Build Time: Graph Generation │
+ │                              │
+ │ ┌────────┐   ┌────────┐      │
+ │ │ Src  A │   │ Src  B │      │
+ │ └───┬────┘   └──┬─────┘      │
+ │     │           │            │
+ │     ▼           │            │
+ │  ┌───────┐      │            │
+ │  │ Obj A │      │            │
+ │  └─────┬─┘      │            │
+ │        │        │            │
+ │        ▼        ▼            │
+ │        ┌─────────────┐       │
+ │        │ Compilation │       │
+ │        │  & Signing  │       │
+ │        └─────┬───────┘       │
+ │              │               │
+ └──────────────┼──────────────-┘
                 │
              ┌──▼─┐
              ▼    ▼
-   ┌──────────┐   ┌──────┐
-   │ [header] ├──►│gitbom│
-   │executable│   │ tree │
-   └──────┬───┘   └┬─────┘
+   ┌──────────┐   ┌──────-┐
+   │ [header] ├──►│gitbom │
+   │executable│   │ graph │
+   └──────┬───┘   └┬─────-┘
           │        │
   ┌───────┼────────┼────────────────────────────┐
   │       │        │     Run Time: Comparison   │
@@ -108,7 +108,7 @@ GitBOM is an approach which has the following properties:
 3. **Immutability**: An identified artifact can not be modified without also changing its identity.
 4. **Uniqueness**: An artifact can have precisely *one* artifact identity graph. All equivalent artifacts have the same graph.
 5. **Transparently Opaque**: Artifacts and associated metadata may be obfuscated when sharing the artifact identity graph, while preserving other properties.
-6. **Truncatability of Tree**: Artifact identity graphs may themselves be treated as artifacts, enabling truncation of a part of the graph and replacing the leading node with a signature of the sub-graph, thereby preserving all other properties with respect to the whole.
+6. **Truncatability of Graph**: Artifact identity graphs may themselves be treated as artifacts, enabling truncation of a part of the graph and replacing the leading node with a signature of the sub-graph, thereby preserving all other properties with respect to the whole.
 7. **Independent Metadata**: Artifacts may be associated, through their identity, to independently generated metadata stored outside of the artifact identity graph, such as an SBOM containing license and provenance metadata.
 8. **Authoritative Reference**: By generating the artifacts in the authoring function, correctness of the generated artifact identity graph can have the minimum number of dependencies (N=1) and least error rate of all solutions which could generate similar graphs.
 9. **Non-reputability**: 
@@ -137,7 +137,7 @@ This implies that a deterministic hashing function may be used to derive artifac
 
 *An artifact can have precisely one artifact identity graph. All equivalent artifacts have the same graph.*
 
-This implies that we must not include build tooling in the artifact tree, as doing otherwise would violate the Uniqueness requirement. For example, two reproducible build systems which rely on different auxiliary libraries (e.g., zlib) and result in byte-equivalent outputs **must** yield identical GitBOMs. 
+This implies that we must not include build tooling in the artifact dependency graph, as doing otherwise would violate the Uniqueness requirement. For example, two reproducible build systems which rely on different auxiliary libraries (e.g., zlib) and result in byte-equivalent outputs **must** yield identical GitBOMs. 
 
 For further exploration of this topic, see Wheeler's work on reproducibility as a means to verify trustability: [Countering Trusting Trust through Diverse Double-Compiling](https://dwheeler.com/trusting-trust/)
 
@@ -149,9 +149,9 @@ For further exploration of this topic, see Wheeler's work on reproducibility as 
 
 *Artifacts and associated metadata may be obfuscated when sharing the artifact identity graph, while preserving other properties.*
 
-Metadata about artifacts and their associated artifact trees may have varying levels of sensitivity.  GitBOM allows the supplier to reveal as little or as much as they, in negotiation with their consumers, choose.  The GitBOM tree itself is just a [merkel tree](https://en.wikipedia.org/wiki/Merkle_tree) of opaque hashes.  This provides transparency about the artifact tree and its structure, while allowing supplier modulated levels of opaequeness about the metadata.
+Metadata about artifacts and their associated artifact dependency graphs may have varying levels of sensitivity.  GitBOM allows the supplier to reveal as little or as much as they, in negotiation with their consumers, choose.  The GitBOM graph itself is just a [merkel tree](https://en.wikipedia.org/wiki/Merkle_tree) of opaque hashes.  This provides transparency about the artifact dependency graph and its structure, while allowing supplier modulated levels of opaequeness about the metadata.
 
-#### 6. Truncatability of Tree
+#### 6. Truncatability of Graph
 
 
 
@@ -189,9 +189,9 @@ Undoubtably, more will arise.  Independence of metadata independent permissionle
 GitBOM is **not** an SBOM standard.
 {{% /notification%}}
 
-From the GitBOM perspective, any SBOM document is a type of artifact which could be referenced in an artifact tree.
+From the GitBOM perspective, any SBOM document is a type of artifact which could be referenced in an artifact dependency graph.
 
-From an SBOM perspective, GitBOM is a common precise way to identify artifacts and their artifact trees, and nothing more. This makes GitBOM incapable of fulfilling many of the objectives of SBOMs, such as recording provenance, origination, build environment information, licensure, and other qualities.
+From an SBOM perspective, GitBOM is a common precise way to identify artifacts and their artifact dependency graphs, and nothing more. This makes GitBOM incapable of fulfilling many of the objectives of SBOMs, such as recording provenance, origination, build environment information, licensure, and other qualities.
 
 {{% notification type="info" %}}
 Speaking strictly from an **SPDX 3.0-draft** perspective, GitBOM is a lossy serialization format that only includes the minimum metadata field of "Identifier".
@@ -199,13 +199,13 @@ Speaking strictly from an **SPDX 3.0-draft** perspective, GitBOM is a lossy seri
 
 Current metadata formats, such as SPDX 2.x, as well as current systems to sign and transport metadata documents, do not *efficiently* support [our use case](#Objective) in the general case. They may well, however, support this use case in a specialized case, which we will discuss.
 
-An argument can be made that current metadata formats can enable run-time analysis of the complete artifact tree. Achieving this would require (1) that generation of SBOM metadata be performed using compatible tooling by every project within the tree, (2) the documents' distrubion be consistent, and, crucially, (3) that a separate system exist to recursively fetch and parse metadata documents for all related projects and index them in a manner enabling efficient search.
+An argument can be made that current metadata formats can enable run-time analysis of the complete artifact dependency graph. Achieving this would require (1) that generation of SBOM metadata be performed using compatible tooling by every project within the graph, (2) the documents' distrubion be consistent, and, crucially, (3) that a separate system exist to recursively fetch and parse metadata documents for all related projects and index them in a manner enabling efficient search.
 
 Let us look briefly at these three adoption requirements in more detail to understand the implications for (and, at least, one motivation for hesitancy in uptake of) volunteer-maintained open source projects.
 
 1. Current tooling to generate SBOM documents requires effort on the part of every OSS project maintainer to integrate with their build systems. While full SBOM generation *could* be integrated into compilers and linkers, as we propose for GitBOM, many view the complexity as overly burdensom on small projects, [creating a source of friction](https://opensource.com/article/21/8/open-source-maintainers) that has and may continue to hamper adoption. On the other hand, due to the pervasiveness of Git itself, we believe a minimalist approach that *already feels familiar* will be better received by this long tail of OSS projects.
 
-2. One obstacle in the distribution and adoption of SBOMs has been competing standards (see the "Landscape" document for examples in addition to SPDX). By proposing to capture only the bare minimum metadata necessary to enable this scenario, we believe this proposal will avoid the ongoing debates about competing standards. *N.B.: Early socialization of this idea has received fairly wide support for the principle of a minimalist disk-based representation of the artifact tree.*
+2. One obstacle in the distribution and adoption of SBOMs has been competing standards (see the "Landscape" document for examples in addition to SPDX). By proposing to capture only the bare minimum metadata necessary to enable this scenario, we believe this proposal will avoid the ongoing debates about competing standards. *N.B.: Early socialization of this idea has received fairly wide support for the principle of a minimalist disk-based representation of the artifact dependency graph.*
 
 3. Run-time comparison, as described in the Objective, must be within the capabilities of even small and independent consumers of open source. A proposal which required large investments in infrastructure (e.g., that an operator maintain a database containing complete SBOM documents for the totality of open source) will not be seen as a reasonable requirement for smaller and independent organizations (even though it may make for a very compelling product offering, were someone to build and license it!).
 
@@ -259,7 +259,7 @@ We calculate the hash of `<baseimage>:<release>`, which is: `000TODO`.
 
 Things get a little trickier when we go to  calculate the hash of the next layer.
 
-Also, we want to produce an artifact tree that can reference the gitbom of any artifacts added to that layer, not merely a hash of the whole layer. We'll do that by ... *TODO* ...
+Also, we want to produce an artifact dependency graph that can reference the gitbom of any artifacts added to that layer, not merely a hash of the whole layer. We'll do that by ... *TODO* ...
 
 Combining these together, we produce the following GitBOM document:
 ```
@@ -282,7 +282,7 @@ blob_000TODO
 **NOTE**: The annotation type 'gitbom' is not yet standardized or accepted to OCI. In the above snipped, 'gitbom' is merely an example.
 {{% /notification %}}
 
-### Example: truncating a tree for non-public subtrees
+### Example: truncating a graph for non-public subgraphs
 
 ***TODO***
 
