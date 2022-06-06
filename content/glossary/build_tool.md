@@ -61,11 +61,11 @@ flowchart LR
     compiler --> .pyc
 ```
 
-The totality of ancestors for a given artifact may be represented as an [artifact tree](/glossary/artifact_tree).
+The totality of ancestors for a given artifact may be represented as an [Artifact Dependency Graph (ADG)](/glossary/artifact_dependency_graph).
 
 ## Code Generators
 
-Typically, source code files are hand written by humans, and as such are [leaf artifacts](/glossary/artifact/#leaf-artifacts) in the [artifact tree](/glossary/artifact_tree).
+Typically, source code files are hand written by humans, and as such are [leaf artifacts](/glossary/artifact/#leaf-artifacts) in the [Artifact Dependency Graph (ADG)](/glossary/artifact_dependency_graph).
 
 Source code files can also be **generated** from other inputs by a code generator.
 

@@ -4,11 +4,11 @@ title: GitBOM
 {{< home/section title="What?" iconclass="fas fa-2x fa-power-off">}}
 
 **[GitBOM](/glossary/gitbom)** is a minimalistic scheme for [build tools](/glossary/build_tool) to:
-1. Build a compact [artifact tree](/glossary/artifact_tree), tracking every source code file incorporated into each built [artifact](/glossary/artifact).
-2. Embed a unique, content-addressable reference for that [artifact tree](/glossary/artifact_tree/), the [GitBOM identifier](/glossary/gitbom/#gitbom-identifier), into the [artifact](/glossary/artifact) at build time.
+1. Build a compact [Artifact Dependency Graph (ADG)](/glossary/artifact_dependency_graph), tracking every source code file incorporated into each built [artifact](/glossary/artifact).
+2. Embed a unique, content-addressable reference for that [Artifact Dependency Graph (ADG)](/glossary/artifact_dependency_graph/), the [GitBOM identifier](/glossary/gitbom/#gitbom-identifier), into the [artifact](/glossary/artifact) at build time.
 
 [GitBOM](/glossary/gitbom) is designed to:
-- Consistently construct verifiable [artifact trees](/glossary/artifact_tree) across languages, environments, and packaging formats, with zero developer effort, involvement, or awareness
+- Consistently construct verifiable [Artifact Dependency Graph (ADG)s](/glossary/artifact_dependency_graph) across languages, environments, and packaging formats, with zero developer effort, involvement, or awareness
 - Enable automatic, verifiable [artifact](/glossary/artifact) resolution across today's diverse software supply chains
 - Complement SBOMs, such as [SPDX](https://spdx.dev/), [CycloneDX](https://cyclonedx.org/), or [SWID](https://nvd.nist.gov/products/swid)
 - Co-exist with, but not require, version control systems
@@ -29,8 +29,8 @@ It is compatible with and augments these classes of tools.
 {{< home/section title="Why?" >}}
 [GitBOM](/glossary/gitbom) applies the [Unix Philosophy](https://en.wikipedia.org/wiki/Unix_philosophy) of "do one thing, and do it well."
 
-By constructing a complete, concise, and verifiable [artifact tree](/glossary/artifact_tree) for every [software artifact](/glossary/artifact), [GitBOM](/glossary/gitbom) enables:
-- Run-time detection of potential vulnerabilities, regardless of the depth in a dependency tree from which that vulnerability originated
+By constructing a complete, concise, and verifiable [Artifact Dependency Graph (ADG)](/glossary/artifact_dependency_graph) for every [software artifact](/glossary/artifact), [GitBOM](/glossary/gitbom) enables:
+- Run-time detection of potential vulnerabilities, regardless of the depth in the [ADG](/glossary/artifact_dependency_graph) for every [software artifact](/glossary/artifact) from which that vulnerability originated
 - Post-exploit forensics
 
 By creating a unique, immutable, verifiable identifier (the [GitBOM ID](/glossary/gitbom/#gitbom-identifier)) for every [software artifact](/glossary/artifact), [GitBOM](/glossary/gitbom):
@@ -44,9 +44,9 @@ In short, it would let anyone easily answer the question, "Does this product con
 ##### How does [GitBOM](glossary/gitbom/) improve software identification and vulnerability management?
 
 [GitBOM](glossary/gitbom/) proposes a solution to the completeness and the efficiency challenges facing other supply chain tools.
-- By correlating every piece of software with a verifiable and complete tree of all the "ingredients" that went into it (source files, dependencies, object files, etc.), [GitBOM](glossary/gitbom/) enables the identification of software derived from sources known to contain vulnerabilities.
+- By correlating every piece of software with a verifiable and complete [Artifact Dependency Graph (ADG)](/glossary/artifact_dependency_graph) of all the "ingredients" that went into it (source files, dependencies, object files, etc.), [GitBOM](glossary/gitbom/) enables the identification of software derived from sources known to contain vulnerabilities.
 - [GitBOM](glossary/gitbom/) only includes the minimum information -- a "fingerprint" -- of the dependency graph to enable efficient run-time scanning for a known-vulnerable artifact
-- A [GitBOM](glossary/gitbom/) [artifact tree](/glossary/artifact_tree) can be cross-referenced against known vulnerabilities, regardless of the dependency depth or language.
+- A [GitBOM](glossary/gitbom/) [Artifact Dependency Graph (ADG)](/glossary/artifact_dependency_graph) can be cross-referenced against known vulnerabilities, regardless of the dependency depth or language.
 
 ##### How does [GitBOM](glossary/gitbom/) work?
 

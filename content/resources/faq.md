@@ -37,9 +37,9 @@ GitBOM seeks to have the following characteristics:
 
 The uniqueness requirement is what drives the exclusion of metadata from GitBOM.
 
-Metadata, stored outside of the GitBOM [artifact tree](/glossary/artifact_tree), may reference any [artifact](/glossary/artifact) within the tree by a unique id -- its [gitoid](/glossary/git/#git-object-id-gitoid). Similarly, the tree itself can be referenced by its [gitoid](/glossary/git/#git-object-id-gitoid).
+Metadata, stored outside of the GitBOM [Artifact Dependency Graph (ADG)](/glossary/artifact_dependency_graph), may reference any [artifact](/glossary/artifact) within the graph by a unique id -- its [gitoid](/glossary/git/#git-object-id-gitoid). Similarly, the graph itself can be referenced by its [gitoid](/glossary/git/#git-object-id-gitoid).
 
-## Will the generation of artifact trees slow down build processes? Will the tree be very large?
+## Will the generation of artifact dependency graphs slow down build processes? Will the graphs be very large?
 
 We don't think so and would be delighted to receive data from very large projects that would either challenge or validate this assumption.
 
