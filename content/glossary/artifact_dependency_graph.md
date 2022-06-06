@@ -1,6 +1,7 @@
 +++
 title = "Artifact Tree"
 toc=true
+aliases = [ "artifact_tree" ]
 +++
 
 ## Artifact Tree
