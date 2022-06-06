@@ -3,7 +3,7 @@ title = "GitBOM"
 toc=true
 +++
 
-An [artifact tree](/glossary/artifact_tree) can be represented as a tree with the nodes identified by an [artifact id](/glossary/artifact#artifact-identifiers).
+An [Artifact Dependency Graph (ADG)](/glossary/artifact_dependency_graph) can be represented as a directed acyclic graph(DAG) with the nodes identified by an [artifact id](/glossary/artifact#artifact-identifiers).
 
 ```mermaid
 flowchart BT

@@ -1,12 +1,13 @@
 +++
-title = "Artifact Tree"
+title = "Artifact Dependency Graph"
 toc=true
+aliases = [ "artifact_tree" ]
 +++
 
-## Artifact Tree
+## Artifact Dependency Graph
 
-The artifact tree of an [artifact](/glossary/artifact) is the recursive DAG (Directed Acyclic Graph) of all the `input artifacts` that are transformed by a [build tool](/glossary/build_tool) into
-that artifact.  It includes the direct input artifacts, and the recursive set of artifacts to each input artifact, all the way down the tree.
+The Artifact Dependency Graph (ADG) of an [artifact](/glossary/artifact) is the recursive DAG (Directed Acyclic Graph) of all the `input artifacts` that are transformed by a [build tool](/glossary/build_tool) into
+that artifact.  It includes the direct input artifacts, and the recursive set of artifacts to each input artifact, all the way down to source code.
 
 ### C Examples
 #### Simple C Executable
@@ -90,10 +91,10 @@ flowchart BT
     pyc5 --> running[running executable]
 ```
 
-## Artifact tree singularity
+## Artifact Dependency Graph singularity
 
-An artifact should have precisely one artifact tree. All [equivalent artifacts](/glossary/artifact/#artifact-equivalency) should have the same artifact tree.
+An artifact should have precisely one Artifact Dependency Graph. All [equivalent artifacts](/glossary/artifact/#artifact-equivalency) should have the same Artifact Dependency Graph.
 
 
 ## Recommended Additional Reading
-- Find out how [GitBOM](/glossary/gitbom) represents artifact trees.
+- Find out how [GitBOM](/glossary/gitbom) represents Artifact Dependency.

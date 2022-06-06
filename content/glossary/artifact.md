@@ -63,4 +63,4 @@ GitBOM advocates for using the [gitoid](/glossary/git/#git-object-id-gitoid) of 
 Source code [leaf artifacts](#leaf-artifacts) are typically already being stored in [git](/glossary/git) where they are identified via their [gitoid](/glossary/git/#git-object-id-gitoid).
 
 ## Recommended Additional Reading
-- Learn more about how each artifact has an [artifact tree](/glossary/artifact_tree)
+- Learn more about how each artifact has an [Artifact Dependency Graph (ADG)](/glossary/artifact_dependency_graph)
