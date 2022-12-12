@@ -1,4 +1,4 @@
-# GitBOM Website Development Container
+# OmniBOR Website Development Container
 
 ## What is a Development Container?
 

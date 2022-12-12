@@ -95,6 +95,6 @@ flowchart BT
 
 An artifact should have precisely one Artifact Dependency Graph. All [equivalent artifacts](/glossary/artifact/#artifact-equivalency) should have the same Artifact Dependency Graph.
 
-
 ## Recommended Additional Reading
-- Find out how [GitBOM](/glossary/gitbom) represents Artifact Dependency.
+
+- Find out how [OmniBOR](/glossary/omnibor) represents Artifact Dependency.
