@@ -1,6 +1,6 @@
-baseURL = 'https://gitbom.dev/'
+baseURL = 'https://omnibor.io/'
 languageCode = 'en-us'
-title = 'GitBOM'
+title = 'OmniBOR'
 googleAnalytics = 'G-WPW8SHFX7L'
 
 [module]
@@ -61,7 +61,7 @@ googleAnalytics = 'G-WPW8SHFX7L'
 
 [params]
 description = 'Automatic and Verifiable Artifact Resolution'
-images = [ '/img/logos/gitbom-logo-stacked.png' ]
+images = [ '/img/logos/omnibor-logo-stacked.png' ]
 subtitle = 'Automatic and Verifiable Artifact Resolution'
 fontawesomeversion = "5.8.1"
 [[params.fonts]]
@@ -79,8 +79,8 @@ type = "monospace"
     twitter = "https://twitter.com/gitbom"
 
 [params.logos]
-navbar = "gitbom-logo.svg"
-hero = "gitbom-logo.svg"
+navbar = "omnibor-logo.svg"
+hero = "omnibor-logo.svg"
 
 [menu]
 [[menu.navbar]]

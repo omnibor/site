@@ -4,7 +4,7 @@ toc = "true"
 +++
 
 
-GitBOM: Enabling Universal Artifact Traceability In Software Supply Chains
+OmniBOR: Enabling Universal Artifact Traceability In Software Supply Chains
 ===
 
 {{% notification type="info" %}}
@@ -17,9 +17,9 @@ Last updated: 2022-01-25
 
 ## Summary
 
-GitBOM is an application of the [git](https://en.wikipedia.org/wiki/Git) [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph), a widely used merkle tree with a flat-file storage format, to the challenge of creating build artifact dependency graphs in today's language-heterogeneous open source environments. Contrary to the name's appearance, GitBOM is neither dependent on `git` nor is it a Software Bill Of Materials (SBOM).
+OmniBOR is an application of the [git](https://en.wikipedia.org/wiki/Git) [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph), a widely used merkle tree with a flat-file storage format, to the challenge of creating build artifact dependency graphs in today's language-heterogeneous open source environments. Contrary to the name's appearance, OmniBOR is neither dependent on `git` nor is it a Software Bill Of Materials (SBOM).
 
-By generating artifact dependency graphs at build time, embedding the hash of the graph in produced artifacts, and referencing that hash in each subsequent build step, GitBOM will enable the creation of verifiable and complete artifact dependency graphs while requiring no effort from, or changes in, most open source projects. Furthermore, it will enable efficient correlation of vulnerability databases against a concise representation of the artifact dependency graph within run-time environments, if vulnerability databases can be correlated to source files or intermediary packages or libraries. These benefits would also accrue to closed-source projects that use the same build tools, and provide insights which span both open and closed source components in a consistent manner.
+By generating artifact dependency graphs at build time, embedding the hash of the graph in produced artifacts, and referencing that hash in each subsequent build step, OmniBOR will enable the creation of verifiable and complete artifact dependency graphs while requiring no effort from, or changes in, most open source projects. Furthermore, it will enable efficient correlation of vulnerability databases against a concise representation of the artifact dependency graph within run-time environments, if vulnerability databases can be correlated to source files or intermediary packages or libraries. These benefits would also accrue to closed-source projects that use the same build tools, and provide insights which span both open and closed source components in a consistent manner.
 
 ### Objective
 
@@ -67,10 +67,10 @@ Following from (2), this on-disk format provides an efficient and already well-u
                 │
              ┌──▼─┐
              ▼    ▼
-   ┌──────────┐   ┌──────-┐
-   │ [header] ├──►│gitbom │
-   │executable│   │ graph │
-   └──────┬───┘   └┬─────-┘
+   ┌──────────┐   ┌──────--┐
+   │ [header] ├──►│omnibor │
+   │executable│   │ graph  │
+   └──────┬───┘   └┬─────--┘
           │        │
   ┌───────┼────────┼────────────────────────────┐
   │       │        │     Run Time: Comparison   │
@@ -92,9 +92,9 @@ Following from (2), this on-disk format provides an efficient and already well-u
 ```
 
 
-## GitBOM
+## OmniBOR
 
-GitBOM is an approach which has the following properties:
+OmniBOR is an approach which has the following properties:
 1. re-uses a well understood paradigm for modelling artifact relationships efficiently in flat files on disk in a machine-readable format
 2. optimally efficient approach for run-time comparison of any given binary object against a dataset of signatures of known-vulnerable inputs 
 3. does not require project maintainers to make any changes to their workflow in order to comply with the [Biden Executive Order](https://www.whitehouse.gov/briefing-room/presidential-actions/2021/05/12/executive-order-on-improving-the-nations-cybersecurity/)
@@ -119,7 +119,7 @@ GitBOM is an approach which has the following properties:
 
 *Two artifacts are equivalent if `[]byte(artifact1) == []byte(artifact2)`.*
 
-Two artifacts are said to be equivalent if and only if they are byte-for-byte identical. This implies that GitBOM is not concerned with questions of provenance, origination, licensure, or many others aspects which are encompassed by a software bill of materials, and which could differ between byte-equivalent artifacts.
+Two artifacts are said to be equivalent if and only if they are byte-for-byte identical. This implies that OmniBOR is not concerned with questions of provenance, origination, licensure, or many others aspects which are encompassed by a software bill of materials, and which could differ between byte-equivalent artifacts.
 
 #### 2. Artifact Identity
 
@@ -137,7 +137,7 @@ This implies that a deterministic hashing function may be used to derive artifac
 
 *An artifact can have precisely one artifact identity graph. All equivalent artifacts have the same graph.*
 
-This implies that we must not include build tooling in the artifact dependency graph, as doing otherwise would violate the Uniqueness requirement. For example, two reproducible build systems which rely on different auxiliary libraries (e.g., zlib) and result in byte-equivalent outputs **must** yield identical GitBOMs. 
+This implies that we must not include build tooling in the artifact dependency graph, as doing otherwise would violate the Uniqueness requirement. For example, two reproducible build systems which rely on different auxiliary libraries (e.g., zlib) and result in byte-equivalent outputs **must** yield identical OmniBORs. 
 
 For further exploration of this topic, see Wheeler's work on reproducibility as a means to verify trustability: [Countering Trusting Trust through Diverse Double-Compiling](https://dwheeler.com/trusting-trust/)
 
@@ -149,7 +149,7 @@ For further exploration of this topic, see Wheeler's work on reproducibility as 
 
 *Artifacts and associated metadata may be obfuscated when sharing the artifact identity graph, while preserving other properties.*
 
-Metadata about artifacts and their associated artifact dependency graphs may have varying levels of sensitivity.  GitBOM allows the supplier to reveal as little or as much as they, in negotiation with their consumers, choose.  The GitBOM graph itself is just a [merkel tree](https://en.wikipedia.org/wiki/Merkle_tree) of opaque hashes.  This provides transparency about the artifact dependency graph and its structure, while allowing supplier modulated levels of opaequeness about the metadata.
+Metadata about artifacts and their associated artifact dependency graphs may have varying levels of sensitivity.  OmniBOR allows the supplier to reveal as little or as much as they, in negotiation with their consumers, choose.  The OmniBOR graph itself is just a [merkel tree](https://en.wikipedia.org/wiki/Merkle_tree) of opaque hashes.  This provides transparency about the artifact dependency graph and its structure, while allowing supplier modulated levels of opaequeness about the metadata.
 
 #### 6. Truncatability of Graph
 
@@ -159,7 +159,7 @@ Metadata about artifacts and their associated artifact dependency graphs may hav
 
 *Artifacts may be associated, through their identity, to independently generated metadata stored outside of the artifact identity graph, such as an SBOM containing license and provenance metadata.*
 
-There are many many many use cases that could use GitBOMs.  An incomplete list would include:
+There are many many many use cases that could use OmniBORs.  An incomplete list would include:
 
 * Detecting potential vulnerabilities in executables/containers.
 * Identifying Open Source License obligations
@@ -174,7 +174,7 @@ Undoubtably, more will arise.  Independence of metadata independent permissionle
 #### 9. Non-reputability
 
 
-### What GitBOM is not
+### What OmniBOR is not
 
 1. Not a system for build reproducability, but it does provide information that is useful for that.
 2. Not a version control system, though it is designed to co-exist with them.
@@ -186,15 +186,15 @@ Undoubtably, more will arise.  Independence of metadata independent permissionle
 ### Comparison to Software Bill Of Materials and our Objective
 
 {{% notification type="info" %}}
-GitBOM is **not** an SBOM standard.
+OmniBOR is **not** an SBOM standard.
 {{% /notification%}}
 
-From the GitBOM perspective, any SBOM document is a type of artifact which could be referenced in an artifact dependency graph.
+From the OmniBOR perspective, any SBOM document is a type of artifact which could be referenced in an artifact dependency graph.
 
-From an SBOM perspective, GitBOM is a common precise way to identify artifacts and their artifact dependency graphs, and nothing more. This makes GitBOM incapable of fulfilling many of the objectives of SBOMs, such as recording provenance, origination, build environment information, licensure, and other qualities.
+From an SBOM perspective, OmniBOR is a common precise way to identify artifacts and their artifact dependency graphs, and nothing more. This makes OmniBOR incapable of fulfilling many of the objectives of SBOMs, such as recording provenance, origination, build environment information, licensure, and other qualities.
 
 {{% notification type="info" %}}
-Speaking strictly from an **SPDX 3.0-draft** perspective, GitBOM is a lossy serialization format that only includes the minimum metadata field of "Identifier".
+Speaking strictly from an **SPDX 3.0-draft** perspective, OmniBOR is a lossy serialization format that only includes the minimum metadata field of "Identifier".
 {{% /notification %}}
 
 Current metadata formats, such as SPDX 2.x, as well as current systems to sign and transport metadata documents, do not *efficiently* support [our use case](#Objective) in the general case. They may well, however, support this use case in a specialized case, which we will discuss.
@@ -203,7 +203,7 @@ An argument can be made that current metadata formats can enable run-time analys
 
 Let us look briefly at these three adoption requirements in more detail to understand the implications for (and, at least, one motivation for hesitancy in uptake of) volunteer-maintained open source projects.
 
-1. Current tooling to generate SBOM documents requires effort on the part of every OSS project maintainer to integrate with their build systems. While full SBOM generation *could* be integrated into compilers and linkers, as we propose for GitBOM, many view the complexity as overly burdensom on small projects, [creating a source of friction](https://opensource.com/article/21/8/open-source-maintainers) that has and may continue to hamper adoption. On the other hand, due to the pervasiveness of Git itself, we believe a minimalist approach that *already feels familiar* will be better received by this long tail of OSS projects.
+1. Current tooling to generate SBOM documents requires effort on the part of every OSS project maintainer to integrate with their build systems. While full SBOM generation *could* be integrated into compilers and linkers, as we propose for OmniBOR, many view the complexity as overly burdensom on small projects, [creating a source of friction](https://opensource.com/article/21/8/open-source-maintainers) that has and may continue to hamper adoption. On the other hand, due to the pervasiveness of Git itself, we believe a minimalist approach that *already feels familiar* will be better received by this long tail of OSS projects.
 
 2. One obstacle in the distribution and adoption of SBOMs has been competing standards (see the "Landscape" document for examples in addition to SPDX). By proposing to capture only the bare minimum metadata necessary to enable this scenario, we believe this proposal will avoid the ongoing debates about competing standards. *N.B.: Early socialization of this idea has received fairly wide support for the principle of a minimalist disk-based representation of the artifact dependency graph.*
 
@@ -217,9 +217,9 @@ Let us look briefly at these three adoption requirements in more detail to under
 
 ***TODO: Santiago***
 
-### GitBOM and SWID
+### OmniBOR and SWID
 
-### GitBOM and pURL
+### OmniBOR and pURL
 
 
 ## Examples
@@ -232,7 +232,7 @@ Imagine we have the following two files:
 
 `stdio.h` has gitoid `c0f35b8ae567f5348df3711496fdc0ef6f634169`
 
-From these two inputs, we compile `hello.o`. The resulting GitBOM is a document (text file) containing the lexically ordered sequence of the gitoids of each input artifact related to this build step:
+From these two inputs, we compile `hello.o`. The resulting OmniBOR is a document (text file) containing the lexically ordered sequence of the gitoids of each input artifact related to this build step:
 
 ```
 blob⎵c0f35b8ae567f5348df3711496fdc0ef6f634169\n 
@@ -259,14 +259,14 @@ We calculate the hash of `<baseimage>:<release>`, which is: `000TODO`.
 
 Things get a little trickier when we go to  calculate the hash of the next layer.
 
-Also, we want to produce an artifact dependency graph that can reference the gitbom of any artifacts added to that layer, not merely a hash of the whole layer. We'll do that by ... *TODO* ...
+Also, we want to produce an artifact dependency graph that can reference the omnibor of any artifacts added to that layer, not merely a hash of the whole layer. We'll do that by ... *TODO* ...
 
-Combining these together, we produce the following GitBOM document:
+Combining these together, we produce the following OmniBOR document:
 ```
 blob_000TODO
 blob_000TODO
 ```
-... and embed the gitoid of this gitbom in the image manifest's `annotations` field, like so:
+... and embed the gitoid of this omnibor in the image manifest's `annotations` field, like so:
 
 ```
 {
@@ -274,12 +274,12 @@ blob_000TODO
   "config": {...},
   "layers": [ {...}, {...} ],
   "annotations": {
-    "gitbom”: “sha256:abc123TODO”
+    "omnibor”: “sha256:abc123TODO”
   }
 }
 ```
 {{% notification type="info" %}}
-**NOTE**: The annotation type 'gitbom' is not yet standardized or accepted to OCI. In the above snipped, 'gitbom' is merely an example.
+**NOTE**: The annotation type 'omnibor' is not yet standardized or accepted to OCI. In the above snipped, 'omnibor' is merely an example.
 {{% /notification %}}
 
 ### Example: truncating a graph for non-public subgraphs
@@ -309,4 +309,4 @@ blob_000TODO
 
 I must thank Ed Warnicke, who pitched this idea to me one sunny summer afternoon in 2021 while I was stuck in Puget Sound traffic, and who graciously accomodated my awkward schedule throughout the rest of the year, most often while both of us were in a car.
 
-I must also thank everyone who provided input and feedback to my "Open Source Landscape" document in 2021, which I have since migrated to a [github repo](https://github.com/AevaOnline/supply-chain-synthesis). The knowledge I gained through those discussions allowed me to identify a tool that was missing from my "supply chain backpack": the GitBOM.
+I must also thank everyone who provided input and feedback to my "Open Source Landscape" document in 2021, which I have since migrated to a [github repo](https://github.com/AevaOnline/supply-chain-synthesis). The knowledge I gained through those discussions allowed me to identify a tool that was missing from my "supply chain backpack": the OmniBOR.
