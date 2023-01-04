@@ -8,3 +8,4 @@
 ## Contents
 
 Based on the [Hugo dev container template](https://github.com/microsoft/vscode-dev-containers/tree/main/containers/hugo) from the `vscode-dev-containers` GitHub repository.
+
