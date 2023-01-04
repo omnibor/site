@@ -3,7 +3,7 @@ title: OmniBOR
 ---
 {{< home/section title="What?" iconclass="fas fa-2x fa-power-off">}}
 
-**[OmniBOR](/glossary/omnibor)** (formerly known as {{% gitbom-orange %}}**[GitBOM](https://gitbom.omnibor.io/)**{{% /gitbom-orange %}}, now Universal **B**ill **o**f **R**eceipts) is a minimalistic scheme for [build tools](/glossary/build_tool) to:
+**[OmniBOR](/glossary/omnibor)** Universal **B**ill **O**f **R**eceipts) is a minimalistic scheme for [build tools](/glossary/build_tool) to:
 1. Build a compact [Artifact Dependency Graph (ADG)](/glossary/artifact_dependency_graph), tracking every source code file incorporated into each built [artifact](/glossary/artifact).
 2. Embed a unique, content-addressable reference for that [Artifact Dependency Graph (ADG)](/glossary/artifact_dependency_graph/), the [OmniBOR identifier](/glossary/omnibor/#omnibor-identifier), into the [artifact](/glossary/artifact) at build time.
 
@@ -22,6 +22,8 @@ title: OmniBOR
 
 It is compatible with and augments these classes of tools.
 {{% /notification %}}
+
+*OmniBOR was formerly known as {{% gitbom-orange %}}**[GitBOM](https://gitbom.omnibor.io/)**{{% /gitbom-orange %}}.*
 
 
 {{< /home/section >}}
