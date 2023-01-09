@@ -42,6 +42,6 @@ Git Blobs are identified by the sha1 of the blob object:
  ![gitoid](/img/gitoid.svg)
 
 There is some nacent movement in git to [SHA-256](https://git-scm.com/docs/hash-function-transition/) for gitoids.
-As the purpose of GitBOM using gitoids for [artifact ids](/glossary/artifact#artifact-identifiers) is to match the indexing
-of the [leaf artifacts](/glossary/artifact/#leaf-artifacts) (aka source files), it is anticipated that GitBOM will follow
+As the purpose of OmniBOR using gitoids for [artifact ids](/glossary/artifact#artifact-identifiers) is to match the indexing
+of the [leaf artifacts](/glossary/artifact/#leaf-artifacts) (aka source files), it is anticipated that OmniBOR will follow
 git's transition to SHA-256 at the rate it is adopted.

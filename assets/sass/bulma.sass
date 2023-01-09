@@ -1,10 +1,11 @@
 // Site-specific variables
 
-$gitbom-grey: #f0efe7
+$omnibor-grey: #f0efe7
 $gitbom-orange: #f14e32
-$gitbom-blue: #0388a6
-$gitbom-light-grey: #eeeeee
-$gitbom-black: #000000
+$omnibor-green: #67AA44
+$omnibor-blue: #218BCB
+$omnibor-light-grey: #eeeeee
+$omnibor-black: #000000
 $twitter-blue: rgb(29, 161, 242)
 
 @import "bulma/sass/utilities/initial-variables"
@@ -16,21 +17,20 @@ $family-monospace: $site-monospace-font, monospace
 @import "bulma/sass/utilities/mixins"
 
 // Bulma variable overrides
-$primary: $gitbom-blue
-$secondary: $gitbom-orange
-$orange: $gitbom-orange
-$link: $orange
+$primary: $omnibor-blue
+$secondary: $omnibor-green
+$link: $omnibor-green
 $link-weight: 700
 $navbar-height: 4rem
 $navbar-item-img-max-height: $navbar-height * 0.8
 $tabs-border-bottom-width: 2px
 $tabs-link-padding: .7rem 1.1rem
-$code: $orange
+$code: $omnibor-green
 $code-background: $white-bis
 
 @import "bulma/sass/utilities/derived-variables"
 
-$colors: mergeColorMaps(("twitter-blue": ($twitter-blue, $white), "orange": ($orange, $white)), $colors)
+$colors: mergeColorMaps(("twitter-blue": ($twitter-blue, $white), "omnibor-green": ($omnibor-green, $white), "gitbom-orange": ($gitbom-orange,$white)), $colors)
 $tabs-link-active-color: $dark
 $tabs-link-active-border-bottom-color: $dark
 

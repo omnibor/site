@@ -55,10 +55,10 @@
 	// Run hugo serve on startup of devcontainer
 	"postStartCommand": "hugo serve",
 
-	// Launch GitBOM Website in browser
+	// Launch OmniBOR Website in browser
 	"portsAttributes": {
 		"1313": {
-			"label": "GitBOM Website",
+			"label": "OmniBOR Website",
 			"onAutoForward": "openBrowser"
 		}
 	},
