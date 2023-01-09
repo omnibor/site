@@ -32,3 +32,14 @@ HUGO_ENABLEGITINFO = "true"
 [[redirects]]
   from = "/glossary/git/#git-ref"
   to = "/glossary/git/#git-object-id-gitoid"
+
+[[redirects]]
+  from = "/glossary/git/#git-ref"
+  to = "/glossary/git/#git-object-id-gitoid"
+
+[[redirects]]
+  from = "https://gitbom.dev/*"
+  to = "https://omnibor.io/:splat"
+  status = 301
+  force = true
+  
