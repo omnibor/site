@@ -1,4 +1,4 @@
-module github.com/git-bom/site
+module github.com/omnibor/site
 
 go 1.17
 
