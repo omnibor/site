@@ -75,8 +75,8 @@ sizes = [300, 400, 600, 700]
 type = "monospace"
 
 [params.social]
-    github = "https://github.com/git-bom/"
-    twitter = "https://twitter.com/gitbom"
+    github = "https://github.com/omnibor/"
+    twitter = "https://twitter.com/omnibor"
 
 [params.logos]
 navbar = "omnibor-logo.svg"
