@@ -17,7 +17,7 @@ Last updated: 2022-01-25
 
 ## Summary
 
-OmniBOR is an application of the [git](https://en.wikipedia.org/wiki/Git) [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph), a widely used merkle tree with a flat-file storage format, to the challenge of creating build artifact dependency graphs in today's language-heterogeneous open source environments. Contrary to the name's appearance, OmniBOR is neither dependent on `git` nor is it a Software Bill Of Materials (SBOM).
+OmniBOR is an application of the [git](https://en.wikipedia.org/wiki/Git) [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph), a widely used merkle tree with a flat-file storage format, to the challenge of creating build artifact dependency graphs in today's language-heterogeneous open source environments.
 
 By generating artifact dependency graphs at build time, embedding the hash of the graph in produced artifacts, and referencing that hash in each subsequent build step, OmniBOR will enable the creation of verifiable and complete artifact dependency graphs while requiring no effort from, or changes in, most open source projects. Furthermore, it will enable efficient correlation of vulnerability databases against a concise representation of the artifact dependency graph within run-time environments, if vulnerability databases can be correlated to source files or intermediary packages or libraries. These benefits would also accrue to closed-source projects that use the same build tools, and provide insights which span both open and closed source components in a consistent manner.
 
@@ -36,7 +36,7 @@ In an ideal scenario, an open source consumer would have available to them a com
 
 For this reason we propose two areas of work:
 1. enhancing artifact-generating tools (e.g., compilers, linkers, and container image generators) to also output metadata regarding their inputs and outputs
-2. defining a storage format which represents the minimum information to describe the artifact dependency graph, and which uses git's on-disk storage format
+2. defining a storage format which represents the minimum information to describe the artifact dependency graph, and which is based on git's on-disk storage format
 
 Following from (1), this approach will require minimal to no effort on the part of open source project maintainers, thus significantly increasing its chances of widespread adoption as compared to any approach which requires maintainers to perform additional actions (e.g., implementing substantive changes in their CI/CD or package build pipeline to generate an SBOM).
 
@@ -149,7 +149,7 @@ For further exploration of this topic, see Wheeler's work on reproducibility as 
 
 *Artifacts and associated metadata may be obfuscated when sharing the artifact identity graph, while preserving other properties.*
 
-Metadata about artifacts and their associated artifact dependency graphs may have varying levels of sensitivity.  OmniBOR allows the supplier to reveal as little or as much as they, in negotiation with their consumers, choose.  The OmniBOR graph itself is just a [merkel tree](https://en.wikipedia.org/wiki/Merkle_tree) of opaque hashes.  This provides transparency about the artifact dependency graph and its structure, while allowing supplier modulated levels of opaequeness about the metadata.
+Metadata about artifacts and their associated artifact dependency graphs may have varying levels of sensitivity.  OmniBOR allows the supplier to reveal as little or as much as they, in negotiation with their consumers, choose.  The OmniBOR graph itself is just a [merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) of opaque hashes.  This provides transparency about the artifact dependency graph and its structure, while allowing supplier modulated levels of opaequeness about the metadata.
 
 #### 6. Truncatability of Graph
 
@@ -176,7 +176,7 @@ Undoubtably, more will arise.  Independence of metadata independent permissionle
 
 ### What OmniBOR is not
 
-1. Not a system for build reproducability, but it does provide information that is useful for that.
+1. Not a system for build reproducibility, but it does provide information that is useful for that.
 2. Not a version control system, though it is designed to co-exist with them.
 3. Not an SBOM, though it is designed to complement them.
 4. Not a globally unique software identifier (SWID).
@@ -203,7 +203,7 @@ An argument can be made that current metadata formats can enable run-time analys
 
 Let us look briefly at these three adoption requirements in more detail to understand the implications for (and, at least, one motivation for hesitancy in uptake of) volunteer-maintained open source projects.
 
-1. Current tooling to generate SBOM documents requires effort on the part of every OSS project maintainer to integrate with their build systems. While full SBOM generation *could* be integrated into compilers and linkers, as we propose for OmniBOR, many view the complexity as overly burdensom on small projects, [creating a source of friction](https://opensource.com/article/21/8/open-source-maintainers) that has and may continue to hamper adoption. On the other hand, due to the pervasiveness of Git itself, we believe a minimalist approach that *already feels familiar* will be better received by this long tail of OSS projects.
+1. Current tooling to generate SBOM documents requires effort on the part of every OSS project maintainer to integrate with their build systems. While full SBOM generation *could* be integrated into compilers and linkers, as we propose for OmniBOR, many view the complexity as overly burdensome on small projects, [creating a source of friction](https://opensource.com/article/21/8/open-source-maintainers) that has and may continue to hamper adoption. On the other hand, due to the pervasiveness of Git itself, we believe a minimalist approach that *already feels familiar* will be better received by this long tail of OSS projects.
 
 2. One obstacle in the distribution and adoption of SBOMs has been competing standards (see the "Landscape" document for examples in addition to SPDX). By proposing to capture only the bare minimum metadata necessary to enable this scenario, we believe this proposal will avoid the ongoing debates about competing standards. *N.B.: Early socialization of this idea has received fairly wide support for the principle of a minimalist disk-based representation of the artifact dependency graph.*
 
@@ -279,7 +279,7 @@ blob_000TODO
 }
 ```
 {{% notification type="info" %}}
-**NOTE**: The annotation type 'omnibor' is not yet standardized or accepted to OCI. In the above snipped, 'omnibor' is merely an example.
+**NOTE**: The annotation type 'omnibor' is not yet standardized or accepted to OCI. In the above snippet, 'omnibor' is merely an example.
 {{% /notification %}}
 
 ### Example: truncating a graph for non-public subgraphs
