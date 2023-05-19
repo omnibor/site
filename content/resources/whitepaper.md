@@ -36,7 +36,7 @@ In an ideal scenario, an open source consumer would have available to them a com
 
 For this reason we propose two areas of work:
 1. enhancing artifact-generating tools (e.g., compilers, linkers, and container image generators) to also output metadata regarding their inputs and outputs
-2. defining a storage format which represents the minimum information to describe the artifact dependency graph, and which uses git's on-disk storage format
+2. defining a storage format which represents the minimum information to describe the artifact dependency graph, and which is based on git's on-disk storage format
 
 Following from (1), this approach will require minimal to no effort on the part of open source project maintainers, thus significantly increasing its chances of widespread adoption as compared to any approach which requires maintainers to perform additional actions (e.g., implementing substantive changes in their CI/CD or package build pipeline to generate an SBOM).
 
