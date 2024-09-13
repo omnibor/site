@@ -1,4 +1,4 @@
-{{- $inServerMode := site.IsServer }}
+{{- $inServerMode := hugo.IsServer }}
 {{ $menuToggle := resources.Get "js/menu-toggle.js" | fingerprint }}
 {{ $anchorFix := resources.Get "js/anchor-fix.js" | fingerprint }}
 {{- if $inServerMode }}
@@ -16,4 +16,3 @@
         mermaid.init(undefined, ".language-mermaid");
     };
 </script>
-

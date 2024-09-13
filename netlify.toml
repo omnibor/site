@@ -1,45 +1,47 @@
+#============================================================================
+# General Build Configuration
+#----------------------------------------------------------------------------
+
 [build]
 publish = "public"
+
+#============================================================================
+# Deployment Contexts
+#
+# Learn more: https://docs.netlify.com/configure-builds/file-based-configuration/#deploy-contexts
+#----------------------------------------------------------------------------
+
+[context.production]
+# Deploys coming from `main`.
 command = "hugo --gc --minify"
-
-[context.production.environment]
-HUGO_VERSION = "0.89.1"
-HUGO_ENV = "production"
-HUGO_ENABLEGITINFO = "true"
-
-[context.split1]
-command = "hugo --gc --minify --enableGitInfo"
-
-[context.split1.environment]
-HUGO_VERSION = "0.88.1"
-HUGO_ENV = "production"
+environment = { HUGO_VERSION = "0.134.1", HUGO_ENV = "production", HUGO_ENABLEGITINFO = "true" }
 
 [context.deploy-preview]
+# Deploys coming from pull requests.
+# Use `--buildFuture` to include future-scheduled content.
 command = "hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL"
-
-[context.deploy-preview.environment]
-HUGO_VERSION = "0.88.1"
+environment = { HUGO_VERSION = "0.134.1" }
 
 [context.branch-deploy]
+# Deploys coming from branches other than `main`.
 command = "hugo --gc --minify -b $DEPLOY_PRIME_URL"
+environment = { HUGO_VERSION = "0.134.1" }
 
-[context.branch-deploy.environment]
-HUGO_VERSION = "0.88.1"
 
-[context.next.environment]
-HUGO_ENABLEGITINFO = "true"
-
-[[redirects]]
-  from = "/glossary/git/#git-ref"
-  to = "/glossary/git/#git-object-id-gitoid"
+#============================================================================
+# Redirects
+#----------------------------------------------------------------------------
 
 [[redirects]]
-  from = "/glossary/git/#git-ref"
-  to = "/glossary/git/#git-object-id-gitoid"
+from = "/glossary/git/#git-ref"
+to = "/glossary/git/#git-object-id-gitoid"
 
 [[redirects]]
-  from = "https://gitbom.dev/*"
-  to = "https://omnibor.io/:splat"
-  status = 301
-  force = true
-  
+from = "/glossary/git/#git-ref"
+to = "/glossary/git/#git-object-id-gitoid"
+
+[[redirects]]
+from = "https://gitbom.dev/*"
+to = "https://omnibor.io/:splat"
+status = 301
+force = true
