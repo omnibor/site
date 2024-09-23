@@ -1,0 +1,71 @@
+{# IMPORT MACROS #}
+{% import "macros/icon.html" as icon %}
+
+{# CONFIGURE title AND nav_title #}
+{% if page and page.title %}
+    {% set nav_title = page.title ~ " — " ~ config.title %}
+    {% set title = page.title %}
+{% elif section and section.title %}
+    {% set nav_title = section.title ~ " — " ~ config.title %}
+    {% set title = section.title %}
+{% else %}
+    {% set nav_title = config.title %}
+    {% set title = config.title %}
+{% endif %}
+
+{# CONFIGURE description #}
+{% if page and page.description %}
+    {% set description = page.description %}
+{% elif section and section.description %}
+    {% set description = section.description %}
+{% else %}
+    {% set description = config.description %}
+{% endif %}
+
+<!doctype html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>{{ nav_title }}</title>
+
+		<meta name="title" content="{{ nav_title }}">
+		<meta name="description" content="{{ description }}">
+
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="{{ config.base_url }}">
+		<meta property="og:title" content="{{ title }}">
+		<meta property="og:description" content="{{ description }}">
+		<meta property="og:image" content="{{ get_url(path="social.png") }}">
+
+		<meta property="twitter:card" content="summary_large_image">
+		<meta property="twitter:url" content="{{ config.base_url }}">
+		<meta property="twitter:title" content="{{ title }}">
+		<meta property="twitter:description" content="{{ description }}">
+		<meta property="twitter:image" content="{{ get_url(path="social.png") }}">
+
+		<link rel="preconnect" href="https://rsms.me/">
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
+		<link rel="stylesheet" href="{{ get_url(path="main.css") }}">
+	</head>
+	<body>
+	    {% include "includes/header.html" %}
+
+		<div class="px-5 md:px-14">
+		    <div class="mb-10">
+		      {% block hero %}{% endblock %}
+			</div>
+
+			<div class="grid grid-cols-12 gap-10">
+			    <div class="col-span-9">
+		            {% block content %}{% endblock %}
+				</div>
+				<div class="col-span-3">
+                    {% block sidebar %}{% endblock %}
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,19 @@
+base_url = "https://omnibor.io"
+title = "OmniBOR"
+compile_sass = false
+build_search_index = true
+
+[markdown]
+highlight_code = true
+
+[extra]
+
+nav = [
+    { name = "Spec", url = "@/spec/_index.md", pill = "v0.1" },
+    { name = "Blog", url = "@/blog/_index.md" },
+    { name = "Governance", url = "@/governance.md" },
+    { sep = true },
+    { name = "Contribute", url = "@/contribute.md" },
+    { sep = true },
+    { icon = "github", url = "https://github.com/omnibor" },
+]
