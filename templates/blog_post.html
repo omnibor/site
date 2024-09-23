@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block hero %}
+{% endblock %}
+
+{% block content %}
+    <h2 class="text-4xl font-medium mb-5">
+        {{ page.title }}
+        {% if page.extra.subtitle %}
+            <span class="block text-2xl font-light mt-2">{{ page.extra.subtitle }}</span>
+        {% endif %}
+    </h2>
+    <div class="mb-10">
+        {% if page.authors %}
+            <span class="block mt-2 text-neutral-500">
+                {% set num_authors = page.authors | length %}
+                {% if num_authors != 0 %}
+                    Written by
+                    {% for author in page.authors -%}
+                        {# I WILL produce a proper Oxford comma #}
+                        {%- if not loop.first and not loop.last -%},&nbsp;{%- elif loop.last -%}{% if num_authors >= 3%},{% endif %} and&nbsp;{%- endif -%}{{ author }}
+                    {%- endfor %}
+                {% endif %}
+            </span>
+        {% endif %}
+        <span class="block mt-2 text-neutral-500">
+            Posted on {{ page.date | date(format="%B %-d, %Y") }}
+        </span>
+    </div>
+
+    <div class="
+        prose
+        prose-neutral
+
+        prose-headings:font-normal
+        prose-headings:mt-10
+        prose-headings:mb-5
+
+        prose-a:font-normal
+
+        prose-ul:list-outside
+        prose-ol:list-outside
+
+        prose-code:before:content-none
+        prose-code:after:content-none
+        prose-code:font-normal
+
+        prose-table:border prose-table:border-black
+        prose-thead:border-black prose-thead:bg-neutral-50
+        prose-tr:border-black
+        prose-th:border-black prose-th:p-2
+        prose-td:border-black prose-td:p-2
+
+        max-w-none
+        ">
+        {{ page.content | safe }}
+    </div>
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}

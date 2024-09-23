@@ -1,0 +1,87 @@
+{# IMPORT MACROS #}
+{% import "macros/icon.html" as icon %}
+{% import "macros/toc.html" as toc %}
+
+{# CONFIGURE title AND nav_title #}
+{% if page and page.title %}
+    {% set nav_title = page.title ~ " — " ~ config.title %}
+    {% set title = page.title %}
+{% elif section and section.title %}
+    {% set nav_title = section.title ~ " — " ~ config.title %}
+    {% set title = section.title %}
+{% else %}
+    {% set nav_title = config.title %}
+    {% set title = config.title %}
+{% endif %}
+
+{# CONFIGURE description #}
+{% if page and page.description %}
+    {% set description = page.description %}
+{% elif section and section.description %}
+    {% set description = section.description %}
+{% else %}
+    {% set description = config.description %}
+{% endif %}
+
+<!doctype html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>{{ nav_title }}</title>
+
+		<meta name="title" content="{{ nav_title }}">
+		<meta name="description" content="{{ description }}">
+
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="{{ config.base_url }}">
+		<meta property="og:title" content="{{ title }}">
+		<meta property="og:description" content="{{ description }}">
+		<meta property="og:image" content="{{ get_url(path="social.png") }}">
+
+		<meta property="twitter:card" content="summary_large_image">
+		<meta property="twitter:url" content="{{ config.base_url }}">
+		<meta property="twitter:title" content="{{ title }}">
+		<meta property="twitter:description" content="{{ description }}">
+		<meta property="twitter:image" content="{{ get_url(path="social.png") }}">
+
+		<link rel="preconnect" href="https://rsms.me/">
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
+		<link rel="stylesheet" href="{{ get_url(path="main.css") }}">
+
+		{% block scripts %}{% endblock %}
+	</head>
+	<body>
+	    {% include "includes/header.html" %}
+
+		<div class="px-5 md:px-14 lg:px-0 max-w-screen-xl mx-auto">
+		    <div class="mb-10">
+		      {% block hero %}{% endblock %}
+			</div>
+
+			<div class="lg:grid lg:grid-cols-8 lg:gap-20">
+			    <div class="lg:col-span-5">
+		            {% block content %}{% endblock %}
+				</div>
+				<div class="lg:col-span-3">
+                    {% block sidebar %}{% endblock %}
+				</div>
+			</div>
+		</div>
+
+		<div class="px-5 md:px-14 pt-10 mt-20 border-t border-black">
+			{% block footer %}
+				{% include "includes/footer.html" %}
+			{% endblock %}
+		</div>
+
+		<script type="module">
+          import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+          document.querySelectorAll('.language-mermaid').forEach(s => s.classList.add("mermaid"));
+          mermaid.initialize({ startOnLoad: true });
+          mermaid.run();
+        </script>
+	</body>
+</html>

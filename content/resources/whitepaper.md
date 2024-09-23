@@ -1,19 +1,14 @@
-+++
-title = "Whitepaper"
-toc = "true"
-+++
+---
+title: Whitepaper
+---
 
 
 OmniBOR: Enabling Universal Artifact Traceability In Software Supply Chains
 ===
 
-{{% notification type="info" %}}
-Author: Aeva Black
-
-Status: DRAFT
-
-Last updated: 2022-01-25
-{{% /notification %}}
+* Author: Aeva Black
+* Status: DRAFT
+* Last updated: 2022-01-25
 
 ## Summary
 
@@ -23,7 +18,7 @@ By generating artifact dependency graphs at build time, embedding the hash of th
 
 ### Objective
 
-It is desirable to enable efficient launch-time comparison of the verifiable and complete build tree of any executable component [1] against a then-current list of undesirable source files [2] which are known to be undesirable, where such a build tree contains unique referents for all sources from which the given executable object was composed. 
+It is desirable to enable efficient launch-time comparison of the verifiable and complete build tree of any executable component [1] against a then-current list of undesirable source files [2] which are known to be undesirable, where such a build tree contains unique referents for all sources from which the given executable object was composed.
 
 [1]: binary, dynamically-linked library, container image, etc.
 
@@ -96,7 +91,7 @@ Following from (2), this on-disk format provides an efficient and already well-u
 
 OmniBOR is an approach which has the following properties:
 1. re-uses a well understood paradigm for modelling artifact relationships efficiently in flat files on disk in a machine-readable format
-2. optimally efficient approach for run-time comparison of any given binary object against a dataset of signatures of known-vulnerable inputs 
+2. optimally efficient approach for run-time comparison of any given binary object against a dataset of signatures of known-vulnerable inputs
 3. does not require project maintainers to make any changes to their workflow in order to comply with the [Biden Executive Order](https://www.whitehouse.gov/briefing-room/presidential-actions/2021/05/12/executive-order-on-improving-the-nations-cybersecurity/)
 4. has a bounded scope of work to achieve near-complete coverage of the F/OSS landscape
 5. could be integrated with both free and commercial services
@@ -111,7 +106,7 @@ OmniBOR is an approach which has the following properties:
 6. **Truncatability of Graph**: Artifact identity graphs may themselves be treated as artifacts, enabling truncation of a part of the graph and replacing the leading node with a signature of the sub-graph, thereby preserving all other properties with respect to the whole.
 7. **Independent Metadata**: Artifacts may be associated, through their identity, to independently generated metadata stored outside of the artifact identity graph, such as an SBOM containing license and provenance metadata.
 8. **Authoritative Reference**: By generating the artifacts in the authoring function, correctness of the generated artifact identity graph can have the minimum number of dependencies (N=1) and least error rate of all solutions which could generate similar graphs.
-9. **Non-reputability**: 
+9. **Non-reputability**:
 10. **Embedded**: An artifact includes a unique identifier of the document containing the artifact identity graph used to generate that artifact.
 
 
@@ -123,7 +118,7 @@ Two artifacts are said to be equivalent if and only if they are byte-for-byte id
 
 #### 2. Artifact Identity
 
-*Independent parties, presented with equivalent artifacts, derive the same artifact identity.* 
+*Independent parties, presented with equivalent artifacts, derive the same artifact identity.*
 
 This implies that a deterministic hashing function may be used to derive artifact identity, such as SHA256.
 
@@ -137,7 +132,7 @@ This implies that a deterministic hashing function may be used to derive artifac
 
 *An artifact can have precisely one artifact identity graph. All equivalent artifacts have the same graph.*
 
-This implies that we must not include build tooling in the artifact dependency graph, as doing otherwise would violate the Uniqueness requirement. For example, two reproducible build systems which rely on different auxiliary libraries (e.g., zlib) and result in byte-equivalent outputs **must** yield identical OmniBORs. 
+This implies that we must not include build tooling in the artifact dependency graph, as doing otherwise would violate the Uniqueness requirement. For example, two reproducible build systems which rely on different auxiliary libraries (e.g., zlib) and result in byte-equivalent outputs **must** yield identical OmniBORs.
 
 For further exploration of this topic, see Wheeler's work on reproducibility as a means to verify trustability: [Countering Trusting Trust through Diverse Double-Compiling](https://dwheeler.com/trusting-trust/)
 
@@ -235,7 +230,7 @@ Imagine we have the following two files:
 From these two inputs, we compile `hello.o`. The resulting OmniBOR is a document (text file) containing the lexically ordered sequence of the gitoids of each input artifact related to this build step:
 
 ```
-blob⎵c0f35b8ae567f5348df3711496fdc0ef6f634169\n 
+blob⎵c0f35b8ae567f5348df3711496fdc0ef6f634169\n
 blob⎵c64efd8bd8bceca8c69f9b5b7647cf0ff61fed59\n
 ```
 

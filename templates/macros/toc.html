@@ -1,0 +1,18 @@
+
+{% macro toc(obj) %}
+    {% if obj.toc %}
+        <div class="sticky top-20 p-5 bg-neutral-100 text-sm leading-relaxed">
+            <h2 class="font-medium mb-5">Table of Contents</h2>
+
+            <ol class="list-decimal list-outside pl-8 marker:text-gray-400">
+                {% for entry in obj.toc %}
+                    <li class="text-black">
+                        <a class="pl-4 hover:text-blue-500" href="{{ entry.permalink | safe }}">
+                            {{ entry.title }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ol>
+        </div>
+    {% endif %}
+{% endmacro %}

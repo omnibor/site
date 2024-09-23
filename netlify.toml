@@ -11,22 +11,20 @@ publish = "public"
 # Learn more: https://docs.netlify.com/configure-builds/file-based-configuration/#deploy-contexts
 #----------------------------------------------------------------------------
 
-[context.production]
 # Deploys coming from `main`.
-command = "hugo --gc --minify"
-environment = { HUGO_VERSION = "0.134.1", HUGO_ENV = "production", HUGO_ENABLEGITINFO = "true" }
+[context.production]
+command = "zola build && tailwindcss -i styles/main.css -o public/main.css"
+ZOLA_VERSION = "0.13.0"
 
-[context.deploy-preview]
 # Deploys coming from pull requests.
-# Use `--buildFuture` to include future-scheduled content.
-command = "hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL"
-environment = { HUGO_VERSION = "0.134.1" }
+[context.deploy-preview]
+command = "zola build --base-url $DEPLOY_PRIME_URL && tailwindcss -i styles/main.css -o public/main.css"
+ZOLA_VERSION = "0.13.0"
 
-[context.branch-deploy]
 # Deploys coming from branches other than `main`.
-command = "hugo --gc --minify -b $DEPLOY_PRIME_URL"
-environment = { HUGO_VERSION = "0.134.1" }
-
+[context.branch-deploy]
+command = "zola build --base-url $DEPLOY_PRIME_URL && tailwindcss -i styles/main.css -o public/main.css"
+ZOLA_VERSION = "0.13.0"
 
 #============================================================================
 # Redirects
