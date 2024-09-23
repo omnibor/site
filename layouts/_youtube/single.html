@@ -1,7 +1,0 @@
-{{ define "title" }}
-{{ .Title }} | {{ site.Title }}
-{{ end }}
-
-{{ define "main" }}
-<iframe src="https://www.youtube.com/embed/{{ .Params.youtube_id }}{{ with .Params.youtube_timestamp }}?t={{.}}{{ end }}" class="youtube" allowfullscreen title="{{ .Title }}"></iframe>
-{{ end }}
