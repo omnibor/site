@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block hero %}
+{% endblock %}
+
+{% block content %}
+    <h2 class="text-4xl font-medium mb-5">
+        {{ section.title }}
+        {% if section.extra.subtitle %}
+            <span class="block text-2xl mt-2 font-light">{{ section.extra.subtitle }}</span>
+        {% endif %}
+    </h2>
+
+    {{ section.content | markdown | safe }}
+
+    <ul class="list-none p-0">
+        {% for page in section.pages %}
+            <li class="py-10">
+                <a class="text-black text-xl font-medium" href="{{ page.permalink }}">{{ page.title }}</a> <span class="block text-sm mt-2 text-neutral-500">Posted on {{ page.date | date(format="%B %-d, %Y") }}</span>
+                <div class="text-sm mt-4">
+                    {{ page.summary | safe }}
+                    <a class="inline-block mt-5 text-gray-700 hover:text-gray-900 hover:underline" href="{{ page.permalink }}#continue-reading">Continue Reading &rarr;</a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}

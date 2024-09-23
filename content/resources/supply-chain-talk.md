@@ -1,8 +1,8 @@
-+++
-title = "Supply Chain Talk"
-type = "_youtube"
-youtube_id = "GKyrsDOse6s"
-youtube_timestamp = "546s"
-+++
+---
+title: "Supply Chain Security Con NA 2021"
+template: "redirect.html"
+extra:
+  redirect_to: "https://www.youtube.com/watch?v=GKyrsDOse6s&t=546s"
+---
 
-{{% youtube id="GKyrsDOse6s" t="546s" %}}
+&nbsp;

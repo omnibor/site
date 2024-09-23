@@ -1,0 +1,5 @@
+{% macro icon(name, classes="") %}
+    <svg class="inline-block w-4 h-4 stroke-0 stroke-current fill-current {{ classes }}">
+        <use href="{{ get_url(path = '/icons/symbol-defs.svg') }}#icon-{{ name }}"></use>
+    </svg>
+{% endmacro icon %}
