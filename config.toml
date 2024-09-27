@@ -11,7 +11,7 @@ highlight_code = true
 nav = [
     { name = "Spec", url = "@/spec/_index.md", pill = "v0.1" },
     { name = "Blog", url = "@/blog/_index.md" },
-    { name = "Governance", url = "@/governance.md" },
+    { name = "Project", url = "@/project.md" },
     { sep = true },
     { name = "Contribute", url = "@/contribute.md" },
     { sep = true },
