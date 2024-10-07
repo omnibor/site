@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block hero %}
+{% endblock %}
+
+{% block content %}
+    <div class="
+            prose prose-neutral
+            prose-headings:font-normal
+            prose-headings:mt-10
+            prose-headings:mb-5
+            prose-a:font-normal
+            prose-ul:list-outside
+            prose-ol:list-outside
+            prose-code:before:content-none
+            prose-code:after:content-none
+            prose-code:font-normal
+            mb-20
+            ">
+        {{ page.content | safe }}
+    </div>
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}
