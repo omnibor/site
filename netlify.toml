@@ -14,17 +14,17 @@ publish = "public"
 # Deploys coming from `main`.
 [context.production]
 command = "zola build && tailwindcss -i styles/main.css -o public/main.css"
-ZOLA_VERSION = "0.13.0"
+environment = {ZOLA_VERSION = "0.13.0"}
 
 # Deploys coming from pull requests.
 [context.deploy-preview]
 command = "zola build --base-url $DEPLOY_PRIME_URL && tailwindcss -i styles/main.css -o public/main.css"
-ZOLA_VERSION = "0.13.0"
+environment = {ZOLA_VERSION = "0.13.0"}
 
 # Deploys coming from branches other than `main`.
 [context.branch-deploy]
 command = "zola build --base-url $DEPLOY_PRIME_URL && tailwindcss -i styles/main.css -o public/main.css"
-ZOLA_VERSION = "0.13.0"
+environment = {ZOLA_VERSION = "0.13.0"}
 
 #============================================================================
 # Redirects
