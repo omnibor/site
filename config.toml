@@ -32,6 +32,7 @@ footer = [
         { name = "OmniBOR CLI", url = "https://github.com/omnibor/omnibor-rs/tree/main/omnibor-cli", external = true },
         { name = "bomsh", url = "https://github.com/omnibor/bomsh", external = true },
         { name = "jbor", url = "https://github.com/omnibor/jbor", external = true },
+        { name = "Third-Party Tools", url = "@/third-party.md" },
     ],
     [
         { name = "Libraries", title = true },
