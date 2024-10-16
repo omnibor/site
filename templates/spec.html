@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block hero %}
+{% endblock %}
+
+{% block content %}
+    <h2 class="text-4xl font-medium mb-5">
+        {{ section.title }}
+        {% if section.extra.subtitle %}
+            <span class="block text-2xl mt-2 font-light">{{ section.extra.subtitle }}</span>
+        {% endif %}
+    </h2>
+
+    <div class="
+        prose
+        prose-neutral
+
+        prose-headings:font-normal
+        prose-headings:mt-10
+        prose-headings:mb-5
+
+        prose-a:font-normal
+
+        prose-ul:list-outside
+        prose-ol:list-outside
+
+        prose-code:before:content-none
+        prose-code:after:content-none
+        prose-code:font-normal
+
+        prose-table:border prose-table:border-black
+        prose-thead:border-black prose-thead:bg-neutral-50
+        prose-tr:border-black
+        prose-th:border-black prose-th:p-2
+        prose-td:border-black prose-td:p-2
+
+        max-w-none
+        ">
+        {{ section.content | safe }}
+    </div>
+{% endblock %}
+
+{% block sidebar %}
+    {{ toc::toc(obj=section) }}
+{% endblock %}

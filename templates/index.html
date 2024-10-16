@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block hero %}
+    <h2 class="text-3xl leading-tight sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight lg:text-6xl lg:leading-tight my-10 md:my-20">
+        <span class="underline underline-offset-4 decoration-2">Reproducible identifiers</span> & <span class="font-extralight">fine-grained</span> build dependency tracking for software artifacts.
+    </h2>
+
+    <div class="md:grid md:grid-cols-2 md:gap-5 lg:grid-cols-12 mb-5 md:mb-0">
+        {# Text block #}
+        <div class="col-span-2 lg:col-span-6 mb-10 md:mb-10 lg:mb-0">
+            <p class="text-lg md:text-2xl leading-relaxed"><strong class="uppercase tracking-wider font-extrabold">
+                OmniBOR</strong> defines two key concepts, <span class="bg-sky-100 rounded-md px-1">Artifact&nbsp;IDs</span> and
+                <span class="bg-amber-100 rounded-md px-1 whitespace-nowrap">Input&nbsp;Manifests</span>, that enable anyone to
+                independently produce the same identifier for any software artifact, and to detect any artifact built
+                with vulnerable inputs.</p>
+        </div>
+
+        {# Artifact ID block #}
+        <div class="md:col-span-1 lg:col-span-3 block md:flex items-stretch mb-5 md:mb-0">
+            <div class="bg-sky-50 border border-black p-5 sm:flex sm:align-start">
+                <div class="mb-2 sm:mb-0 mr-3 pt-1">{{ icon::icon(name="tag", classes="w-5 h-5") }}</div>
+                <div class="flex-1">
+                    <h3 class="text-2xl mb-2 whitespace-nowrap">Artifact IDs</h3>
+                    <p>Reproducible identifiers based only on an artifact itself.</p>
+                    <a class="inline-block mt-3 text-sky-600 hover:text-sky-900 font-medium" href="{{ get_url(path = "@/docs/artifact-ids.md") }}">Learn more &nearr;</a>
+                </div>
+            </div>
+        </div>
+
+        {# Input Manifest block #}
+        <div class="md:col-span-1 lg:col-span-3 block md:flex items-stretch">
+            <div class="bg-amber-50 border border-black p-5 sm:flex sm:align-start">
+                <div class="mb-2 sm:mb-0 mr-3 pt-1">{{ icon::icon(name="book-open", classes="w-5 h-5") }}</div>
+                <div class="flex-1">
+                    <h3 class="text-2xl mb-2 whitespace-nowrap">Input Manifests</h3>
+                    <p>Records of Artifact IDs for artifact build inputs.</p>
+                    <a class="inline-block mt-3 text-amber-600 hover:text-amber-800 font-medium" href="{{ get_url(path = "@/docs/input-manifests.md") }}">Learn more &nearr;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}

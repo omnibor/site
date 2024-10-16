@@ -1,0 +1,37 @@
+<header class="border-b border-black mb-2 md:mb-5 px-5 md:px-14 pt-5 pb-4">
+    <nav class="text-lg flex gap-5 md:gap-8 justify-between max-w-screen-xl mx-auto">
+        <div class="sm:flex sm:gap-5 md:gap-8">
+            <span><a class="hover:text-blue-500 font-extrabold uppercase tracking-wider" href="{{ get_url(path='@/_index.md') }}">{{ config.title }}</a></span>
+        </div>
+       	<ul class="grid grid-cols-2 gap-x-5 sm:flex sm:gap-5 md:gap-8">
+      		{% for entry in config.extra.nav %}
+     			<li class="{% if entry.sep %}hidden md:inline{% endif %}">
+                    {% if entry.sep %}
+                        <span class="hidden md:inline text-gray-200">/</span>
+                    {% endif %}
+                    {% if entry.sep %}
+                        {% continue %}
+                    {% endif %}
+
+                    {% if entry.url is starting_with("http") %}
+                        {% set url = entry.url %}
+                    {% else %}
+                        {% set url = get_url(path=entry.url) %}
+                    {% endif %}
+
+    				<a href="{{ url }}" class="group hover:text-blue-500 whitespace-nowrap">
+        				{% if entry.name %}
+                            {{ entry.name | safe }}
+                        {% elif entry.icon %}
+                            {{ icon::icon(name=entry.icon) }}
+                        {% endif %}
+
+                        {% if entry.pill %}
+                            <span class="group-hover:bg-blue-50 rounded-md bg-gray-100 text-sm py-1 px-2">{{ entry.pill }}</span>
+                        {% endif %}
+    				</a>
+     			</li>
+      		{% endfor %}
+       	</ul>
+    </nav>
+</header>

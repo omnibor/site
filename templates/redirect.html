@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block scripts %}
+    {% if page.extra.redirect_to %}
+        {% set target = page.extra.redirect_to %}
+
+        {% if target is starting_with("http") %}
+            {% set url = target %}
+        {% else %}
+            {% set url = get_url(path=target) %}
+        {% endif %}
+
+        <script>
+          window.location.replace("{{ url | safe }}")
+        </script>
+    {% endif %}
+{% endblock %}

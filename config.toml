@@ -1,97 +1,61 @@
-baseURL = 'https://omnibor.io/'
-languageCode = 'en-us'
-title = 'OmniBOR'
-googleAnalytics = 'G-WPW8SHFX7L'
+base_url = "https://omnibor.io"
+title = "OmniBOR"
+compile_sass = false
+build_search_index = true
 
-[module]
-  [[module.imports]]
-    path = "github.com/FortAwesome/Font-Awesome"
-  [[module.imports.mounts]]
-    source = "scss"
-    target = "assets/sass/fontawesome"
-  [[module.imports.mounts]]
-    source = "webfonts"
-    target = "static/webfonts"
+[markdown]
 
-  [[module.imports]]
-    path="github.com/jgthms/bulma"
-  [[module.imports.mounts]]
-    source = "."
-    target = "assets/sass/bulma"
+highlight_code = true
+highlight_theme = "ayu-light"
 
-  [[module.imports]]
-    path="github.com/twbs/bootstrap"
-  [[module.imports.mounts]]
-    source = "dist/css"
-    target = "assets/css/bootstrap"
-  [[module.imports.mounts]]
-    source = "dist/js"
-    target = "static/js/bootstrap"
+[extra]
 
-  [[module.imports]]
-    path="github.com/jquery/jquery"
-  [[module.imports.mounts]]
-    source = "dist"
-    target = "static/js/jquery"
+nav = [
+    { name = "Spec", url = "@/spec/_index.md", pill = "v0.1" },
+    { name = "Docs", url = "@/docs/_index.md" },
+    { sep = true },
+    { name = "Blog", url = "@/blog/_index.md" },
+    { name = "Project", url = "@/project.md" },
+    { name = "Contribute", url = "@/contribute.md" },
+    { sep = true },
+    { icon = "github", url = "https://github.com/omnibor" },
+]
 
-  [[module.imports]]
-    path="github.com/mermaid-js/mermaid"
-  [[module.imports.mounts]]
-    source = "dist"
-    target = "assets/js/mermaid"
-
-# Syntax highlighting settings
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
-    [markup.goldmark.parser]
-      [markup.goldmark.parser.attribute]
-        block = true
-        title = true
-  [markup.highlight]
-    lineNos = true
-    lineNumbersInTable = true
-    noClasses = false
-    style = 'monokailight'
-  [markup.tableOfContents]
-    endLevel = 3
-    ordered = false
-    startLevel = 1
-
-[params]
-description = 'Automatic and Verifiable Artifact Resolution'
-images = [ '/img/logos/omnibor-logo-stacked.png' ]
-subtitle = 'Automatic and Verifiable Artifact Resolution'
-fontawesomeversion = "5.8.1"
-[[params.fonts]]
-name = "Nunito Sans"
-sizes = [300, 400, 600, 700]
-type = "sans_serif"
-
-[[params.fonts]]
-name = "Roboto Mono"
-sizes = [300, 400, 600, 700]
-type = "monospace"
-
-[params.social]
-    github = "https://github.com/omnibor/"
-    twitter = "https://twitter.com/omnibor"
-
-[params.logos]
-navbar = "omnibor-logo.svg"
-hero = "omnibor-logo.svg"
-
-[menu]
-[[menu.navbar]]
-name = "Resources"
-url = "/resources/"
-weight = 1
-[[menu.navbar]]
-name = "Community"
-url = "/community/"
-weight = 2
-[[menu.navbar]]
-name = "Glossary"
-url = "/glossary/"
-weight = 3
+footer = [
+    [
+        { name = "Spec", title = true },
+        { name = "Stable", url = "@/spec/v0.1/_index.md", pill = "v0.1" },
+        { name = "Latest", url = "https://github.com/omnibor/spec", external = true },
+    ],
+    [
+        { name = "Tools", title = true },
+        { name = "OmniBOR CLI", url = "https://github.com/omnibor/omnibor-rs/tree/main/omnibor-cli", external = true },
+        { name = "bomsh", url = "https://github.com/omnibor/bomsh", external = true },
+        { name = "jbor", url = "https://github.com/omnibor/jbor", external = true },
+        { name = "Third-Party Tools", url = "@/third-party.md" },
+    ],
+    [
+        { name = "Libraries", title = true },
+        { name = "Rust", url = "https://github.com/omnibor/omnibor-rs", external = true },
+        { name = "Go", url = "https://github.com/omnibor/omnibor-go", external = true },
+        { name = ".NET", url = "https://github.com/omnibor/omnibor-dotnet", external = true },
+        { name = "Python", url = "https://github.com/omnibor/omnibor-py", external = true },
+    ],
+    [
+        { name = "Docs", title = true },
+        { name = "Artifact IDs", url = "@/docs/artifact-ids.md" },
+        { name = "Input Manifests", url = "@/docs/input-manifests.md" },
+        { name = "Glossary", url = "@/glossary/_index.md" },
+        { name = "Resources", url = "@/resources/_index.md" },
+    ],
+    [
+        { name = "Info", title = true },
+        { name = "Contribute", url = "@/contribute.md" },
+        { name = "Project", url = "@/project.md" },
+    ],
+    [
+        { name = "Social", title = true },
+        { name = "YouTube", url = "https://www.youtube.com/@omnibor", external = true },
+        { name = "Twitter / X", url = "https://x.com/omnibor", external = true },
+    ],
+]
