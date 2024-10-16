@@ -31,6 +31,10 @@ environment = {ZOLA_VERSION = "0.13.0"}
 #----------------------------------------------------------------------------
 
 [[redirects]]
+from = "/community"
+to = "/contribute"
+
+[[redirects]]
 from = "/glossary/git/#git-ref"
 to = "/glossary/git/#git-object-id-gitoid"
 
