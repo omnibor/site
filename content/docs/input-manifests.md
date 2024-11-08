@@ -3,21 +3,19 @@ title: Input Manifests
 template: doc.html
 ---
 
-Input Manifests, alongside [Artifact IDs][artifact_ids], are one half of the
-equation for OmniBOR. Input Manifests are how OmniBOR records the inputs used
+Input Manifests are one half of the equation for OmniBOR, and [Artifact IDs][artifact_ids] are the other. Input Manifests are how OmniBOR records the inputs used
 to build software artifacts, and form the basis for how OmniBOR can allow
 consumers of software to build fine-grained _Artifact Dependency Graphs_ (ADGs)
 that enable rapid discovery of vulnerable components and much more.
 
 ## What is an Input Manifest?
 
-An Input Manifests is a small text file format which records information about
-the inputs used to build a software artifacts. By "inputs" we mean anything
+An Input Manifest is a small text file formatted to record information about
+the inputs used to build a software artifact. By "inputs" we mean anything
 provided to a build tool in order to produce the artifact. For example, when
 building a project written in the C programming language, the Input Manifest
 for a `.o` file (an object file) built from an associated `.c` file (a
-source file) would have an Input Manifest recording the Artifact ID of the
-`.c` file.
+source file) would record the Artifact ID of the `.c` file.
 
 ## What do Input Manifests Look Like?
 
@@ -34,31 +32,22 @@ f47ffb3518f236eea6525fd29f057ddd5cda1bb803ccc662e6bc5925afd1e4af\n
 
 Every Input Manifest starts with a header that provides some information about
 the Artifact IDs used throughout the rest of the manifest. Every Artifact ID
-includes `blob` as its object type, and `sha256` as its hash type, and _all_
+includes `blob` as its object type, and `sha256` as its hash type. _All_
 Artifact IDs in a single Input Manifest must have the same hash type as all
-others. This is to ensure in the future, if Artifact IDs are ever updated to
-support more hash algorithms, that a single Input Manifest only uses one hash
-algorithm at a time.
+others. This is to ensure that a single Input Manifest only uses one hash
+algorithm at a time. Thus preventing conflicts if, in the future, Artifact IDs are ever updated to support more hash algorithms.
 
-Then we have Artifact IDs for each input artifact used to build the "target
-artifact" being described. These Artifact IDs are listed in lexical order.
+The Input Manifest then contains Artifact IDs for each input artifact used to build the "target artifact" being described. These Artifact IDs are listed in lexical order.
 
 Each line is separated by a single newline character (`\n`) regardless of
 the user's current platform. This is because we need these Input Manifests to
 always be bit-for-bit identical regardless of where they're derived.
 
-The one additional wrinkle is that if an input artifact itself has an Input
-Manifest, we can include the Artifact ID of the input artifact's Input Manifest
-as well.
-
-_This_ is a key part of the secret sauce of OmniBOR, which we'll explain in
-the next section.
+If an input artifact itself has an Input Manifest, the Artifact ID of the input artifact's Input Manifest is also included. This is denoted by appending the input Artifact's ID with `⎵manifest⎵` followed by the input artifact's Input Manifest ID followed by the single newline character discussed above. See the right side of line 4 in the example above. _This_ is a key part of the secret sauce of OmniBOR, which we'll explain in the next section.
 
 ## From Input Manifests to Artifact Dependency Graphs
 
-There are two key ideas that we've not discussed yet which turn OmniBOR from
-a lightweight method for listing IDs of input files and turn it into a
-Merkle tree for a software artifact's complete dependency tree:
+There are two key ideas that turn OmniBOR from a lightweight method for listing IDs of input files into a Merkle tree for a software artifact's complete dependency tree:
 
 - Input Manifests record Artifact IDs of their inputs and (if available) their
   inputs' own Input Manifests
