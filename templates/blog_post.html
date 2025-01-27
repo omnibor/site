@@ -18,7 +18,7 @@
                     Written by
                     {% for author in page.authors -%}
                         {# I WILL produce a proper Oxford comma #}
-                        {%- if not loop.first and not loop.last -%},&nbsp;{%- elif loop.last -%}{% if num_authors >= 3%},{% endif %} and&nbsp;{%- endif -%}{{ author }}
+                        {%- if not loop.first and not loop.last -%},&nbsp;{%- elif loop.last and num_authors != 1 -%}{% if num_authors >= 3%},{% endif %} and&nbsp;{%- endif -%}{{ author }}
                     {%- endfor %}
                 {% endif %}
             </span>
